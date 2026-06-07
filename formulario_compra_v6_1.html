@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -140,7 +140,7 @@
   <div class="header">
     <div class="logo">PREMIUM Delevent</div>
     <h1>Hoja de Solicitud de Compra</h1>
-    <p>Completa todos los campos y pulsa "Enviar Solicitud"</p>
+    <p>Completa todos los campos y pulsa "Enviar Solicitud" &nbsp;|&nbsp; <strong id="ref-display" style="color:#c0a96e; letter-spacing:1px;"></strong></p>
   </div>
   <div class="body">
 
@@ -153,10 +153,17 @@
           <input type="text" id="fecha" readonly>
         </div>
         <div class="field">
+          <label>Referencia del Formulario</label>
+          <input type="text" id="referencia" readonly style="font-weight:700; color:#1a1a2e; letter-spacing:1px;">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
           <label>Nombre del Solicitante <span class="required">*</span></label>
           <input type="text" id="solicitante" placeholder="Tu nombre completo">
           <span class="error-msg" id="err-solicitante">Campo obligatorio</span>
         </div>
+        <div class="field"></div>
       </div>
       <div class="row">
         <div class="field">
@@ -225,7 +232,7 @@
               <th class="col-qty">Cantidad</th>
               <th class="col-pc">P. Compra Unit. (€)</th>
               <th class="col-tc">Total Coste s/IVA</th>
-              <th class="col-pa sep-left">P. Alquiler Unit. (€)</th>
+              <th class="col-pa sep-left">P. Alquiler Unit. (€) <span class="required">*</span></th>
               <th class="col-ta">Total Alquiler s/IVA</th>
               <th class="col-incr">Incr. %</th>
               <th class="col-del"></th>
@@ -251,6 +258,7 @@
         </div>
       </div>
       <span class="error-msg" id="err-productos" style="display:none; font-size:13px;">Añade al menos un producto con descripción, cantidad y precio de compra.</span>
+      <span class="error-msg" id="err-alquiler" style="display:none; font-size:13px; margin-top:4px;">El precio de alquiler al cliente es obligatorio en todas las líneas.</span>
     </div>
 
     <!-- SECCIÓN 4 -->
@@ -285,6 +293,20 @@
   const hoy = new Date();
   const opts = { day: '2-digit', month: '2-digit', year: 'numeric' };
   document.getElementById('fecha').value = hoy.toLocaleDateString('es-ES', opts);
+
+  // Referencia única: REF-YYYYMMDD-HHMMSS
+  (function() {
+    const pad = n => String(n).padStart(2,'0');
+    const ref = 'REF-' +
+      hoy.getFullYear() +
+      pad(hoy.getMonth()+1) +
+      pad(hoy.getDate()) + '-' +
+      pad(hoy.getHours()) +
+      pad(hoy.getMinutes()) +
+      pad(hoy.getSeconds());
+    document.getElementById('referencia').value = ref;
+    document.getElementById('ref-display').textContent = ref;
+  })();
 
   function onProveedorNuevoChange() {
     const val = document.getElementById('proveedor-nuevo').value;
@@ -410,15 +432,34 @@
       }
     });
     let validLines = 0;
+    let missingAlquiler = false;
     document.querySelectorAll('tr.fila-compra').forEach(function(trC) {
+      const id    = trC.id.replace('row-compra-', '');
+      const trA   = document.getElementById('row-alquiler-' + id);
       const desc  = trC.querySelector('.desc') ? trC.querySelector('.desc').value.trim() : '';
       const qty   = parseFloat(trC.querySelector('.qty') ? trC.querySelector('.qty').value : 0) || 0;
       const price = parseFloat(trC.querySelector('.price-compra') ? trC.querySelector('.price-compra').value : 0) || 0;
-      if (desc && qty > 0 && price > 0) validLines++;
+      const priceAlq = trA && trA.querySelector('.price-alquiler') ? (parseFloat(trA.querySelector('.price-alquiler').value) || 0) : 0;
+      if (desc && qty > 0 && price > 0) {
+        validLines++;
+        if (priceAlq <= 0) {
+          missingAlquiler = true;
+          if (trA && trA.querySelector('.price-alquiler')) {
+            trA.querySelector('.price-alquiler').style.borderColor = '#c0392b';
+          }
+        } else {
+          if (trA && trA.querySelector('.price-alquiler')) {
+            trA.querySelector('.price-alquiler').style.borderColor = '';
+          }
+        }
+      }
     });
     const errProd = document.getElementById('err-productos');
+    const errAlq  = document.getElementById('err-alquiler');
     if (validLines === 0) { errProd.style.display = 'block'; ok = false; }
     else { errProd.style.display = 'none'; }
+    if (missingAlquiler) { errAlq.style.display = 'block'; ok = false; }
+    else { errAlq.style.display = 'none'; }
     return ok;
   }
 
@@ -466,7 +507,7 @@
     doc.setFontSize(16); doc.setTextColor(...white);
     doc.text('Hoja de Solicitud de Compra', M, 24);
     doc.setFontSize(9);  doc.setTextColor(180,180,180); doc.setFont('helvetica','normal');
-    doc.text('Generado el ' + datos.fecha, M, 33);
+    doc.text('Generado el ' + datos.fecha + '   |   ' + datos.referencia, M, 33);
     y = 54;
 
     function seccion(titulo) {
@@ -492,6 +533,7 @@
 
     // SEC 1
     seccion('1. Datos de la Solicitud');
+    fila('Referencia:', datos.referencia);
     fila('Fecha:', datos.fecha);
     fila('Solicitante:', datos.solicitante);
     fila('Email:', datos.emailSol);
@@ -626,10 +668,6 @@
 
     filaTot('Base Imponible:', fmtPDF(datos.base) + ' €', false);
     filaTot('IVA (21%):', fmtPDF(datos.iva) + ' €', false);
-    // línea separadora antes del total
-    doc.setDrawColor(...navy); doc.setLineWidth(0.4);
-    doc.line(lblX, y-1, valX, y-1);
-    doc.setLineWidth(0.2);
     filaTot('TOTAL con IVA:', fmtPDF(datos.total) + ' €', true);
 
     y += 4;
@@ -651,9 +689,9 @@
     doc.setFontSize(7.5); doc.setFont('helvetica','normal'); doc.setTextColor(180,180,180);
     doc.text('PREMIUM Delevent, S.L. – Documento generado automáticamente. Adjuntar al correo junto con el material de soporte.', M, pieY+10);
     doc.setTextColor(...gold);
-    doc.text('compras@premiumdelevent.com', M, pieY+18);
+    doc.text('Jose.leon@premiumdelevent.com', M, pieY+18);
 
-    const fname = 'Solicitud_Compra_' + datos.evento.replace(/\s+/g,'_') + '_' + datos.fecha.replace(/\//g,'-') + '.pdf';
+    const fname = datos.referencia + '_' + datos.evento.replace(/\s+/g,'_') + '.pdf';
     doc.save(fname);
     return fname;
   }
@@ -680,7 +718,7 @@
     const iva    = base * 0.21;
     const total  = base + iva;
 
-    const datos = { fecha, solicitante, emailSol, evento, motivo, proveedor, proveedorNuevo, comentarios, lineas, base, iva, total };
+    const datos = { fecha, solicitante, emailSol, evento, motivo, proveedor, proveedorNuevo, comentarios, lineas, base, iva, total, referencia: document.getElementById('referencia').value };
     generarPDF(datos);
 
     let tablaLineas = '';
@@ -699,8 +737,9 @@
     setTimeout(function() {
       const asunto = encodeURIComponent('Solicitud de Compra – ' + evento + ' – ' + fecha);
       const cuerpo = encodeURIComponent(
-        'Hola Nuria,\n\nTe remito la siguiente solicitud de compra para tu gestión.\n\n' +
+        'Hola Jose,\n\nTe remito la siguiente solicitud de compra para tu gestión.\n\n' +
         '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nDATOS DE LA SOLICITUD\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+        'Referencia:           ' + document.getElementById('referencia').value + '\n' +
         'Fecha de solicitud:   ' + fecha + '\n' +
         'Solicitante:          ' + solicitante + '\n' +
         'Email solicitante:    ' + emailSol + '\n' +
@@ -721,7 +760,7 @@
         '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n' +
         'Quedo a tu disposición para cualquier aclaración.\n\nUn saludo,\n' + solicitante
       );
-      window.location.href = 'mailto:compras@premiumdelevent.com?subject=' + asunto + '&body=' + cuerpo;
+      window.location.href = 'mailto:Jose.leon@premiumdelevent.com?subject=' + asunto + '&body=' + cuerpo;
     }, 800);
   }
 </script>
