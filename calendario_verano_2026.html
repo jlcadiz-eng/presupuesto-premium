@@ -6,43 +6,19 @@
 <title>Calendario de Disponibilidad — Verano 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap');
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --navy: #1a2744;
-    --navy-light: #243159;
-    --cream: #f5f0e8;
-    --cream-dark: #ede7d8;
-    --gold: #c9a84c;
-    --gold-light: #e8d49a;
-    --text-main: #1a2744;
-    --text-muted: #6b7a99;
-    --available: #2d7a4f;
-    --available-bg: #d4eddf;
-    --vacation: #c9601a;
-    --vacation-bg: #fde8d4;
-    --na: #9aa3b5;
-    --na-bg: #eef0f4;
-    --holiday-bg: #f0e6f6;
-    --holiday-text: #6b3fa0;
-    --weekend-bg: #f4f4f4;
-    --border: #d8d0c0;
-    --white: #ffffff;
-    --shadow: 0 2px 12px rgba(26,39,68,0.08);
+    --navy: #1a2744; --navy-light: #243159; --cream: #f5f0e8; --cream-dark: #ede7d8;
+    --gold: #c9a84c; --gold-light: #e8d49a; --text-main: #1a2744; --text-muted: #6b7a99;
+    --available: #2d7a4f; --available-bg: #d4eddf; --vacation: #c9601a; --vacation-bg: #fde8d4;
+    --na: #9aa3b5; --na-bg: #eef0f4; --holiday-bg: #f0e6f6; --holiday-text: #6b3fa0;
+    --weekend-bg: #f4f4f4; --border: #d8d0c0; --white: #ffffff; --shadow: 0 2px 12px rgba(26,39,68,0.08);
   }
-
   body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text-main); min-height: 100vh; }
-
-  .header {
-    background: var(--navy); color: var(--white);
-    padding: 2rem 2.5rem 1.5rem;
-    display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-  }
+  .header { background: var(--navy); color: var(--white); padding: 2rem 2.5rem 1.5rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
   .header-left h1 { font-family: 'DM Serif Display', serif; font-size: 2rem; font-weight: 400; letter-spacing: -0.5px; line-height: 1.1; color: var(--cream); }
   .header-left p { font-size: 0.8rem; color: var(--gold-light); margin-top: 4px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; text-transform: uppercase; }
   .header-right { display: flex; gap: 8px; align-items: center; }
-
   .btn { padding: 8px 16px; border-radius: 6px; font-size: 0.8rem; font-family: 'Inter', sans-serif; font-weight: 500; cursor: pointer; border: none; transition: all 0.15s; }
   .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--cream); }
   .btn-outline:hover { background: rgba(255,255,255,0.1); }
@@ -51,69 +27,38 @@
   .btn-danger { background: #c0392b; color: white; }
   .btn-danger:hover { background: #a93226; }
   .btn-sm { padding: 4px 10px; font-size: 0.72rem; border-radius: 4px; }
-
-  .legend-bar {
-    background: var(--navy-light); padding: 0.6rem 2.5rem;
-    display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;
-  }
+  .legend-bar { background: var(--navy-light); padding: 0.6rem 2.5rem; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
   .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: rgba(255,255,255,0.75); font-family: 'JetBrains Mono', monospace; }
   .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-  .dot-available { background: var(--available); }
-  .dot-vacation { background: var(--vacation); }
-  .dot-na { background: var(--na); }
-  .dot-holiday { background: #9b59b6; }
-  .dot-weekend { background: #bbb; }
-
+  .dot-available { background: var(--available); } .dot-vacation { background: var(--vacation); }
+  .dot-na { background: var(--na); } .dot-holiday { background: #9b59b6; } .dot-weekend { background: #bbb; }
+  .sync-status { font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; color: var(--gold-light); padding: 0 2.5rem 0.4rem; background: var(--navy-light); }
   .main { padding: 1.5rem 2.5rem 3rem; }
-
   .month-section { margin-bottom: 2.5rem; }
   .month-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--navy); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--gold); display: inline-block; }
-
   .table-wrap { overflow-x: auto; }
   table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); min-width: 900px; }
-
   .th-week { background: var(--navy); color: var(--gold-light); font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 4px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
-  .th-week.weekend-header { background: #2a2a2a; color: #aaa; }
-
   .th-day { background: var(--cream-dark); color: var(--text-main); font-size: 0.7rem; font-weight: 600; padding: 5px 2px; text-align: center; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); min-width: 32px; line-height: 1.2; }
   .th-day .day-num { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; font-weight: 500; display: block; }
   .th-day .day-name { font-size: 0.58rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
-  .th-day.is-weekend { background: var(--weekend-bg); }
-  .th-day.is-weekend .day-num { color: #999; }
-  .th-day.is-holiday { background: var(--holiday-bg); }
-  .th-day.is-holiday .day-num { color: var(--holiday-text); }
-  .th-day.is-holiday .day-name { color: var(--holiday-text); }
-
+  .th-day.is-weekend { background: var(--weekend-bg); } .th-day.is-weekend .day-num { color: #999; }
+  .th-day.is-holiday { background: var(--holiday-bg); } .th-day.is-holiday .day-num { color: var(--holiday-text); } .th-day.is-holiday .day-name { color: var(--holiday-text); }
   .th-name-header { background: var(--cream-dark); font-size: 0.65rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 12px; border-right: 2px solid var(--border); border-bottom: 1px solid var(--border); text-align: left; }
   .th-person { background: var(--cream-dark); font-size: 0.75rem; font-weight: 500; padding: 8px 12px; text-align: left; border-right: 2px solid var(--border); border-bottom: 1px solid var(--border); min-width: 150px; white-space: nowrap; }
-
   .dept-row td { background: var(--navy); color: var(--gold-light); font-size: 0.63rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'JetBrains Mono', monospace; padding: 5px 12px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-
-  .person-row:hover .td-person, .person-row:hover .td-cell:not(.is-weekend):not(.is-holiday) { filter: brightness(0.97); }
-
   .td-person { padding: 6px 12px; font-size: 0.8rem; font-weight: 500; border-right: 2px solid var(--border); border-bottom: 1px solid var(--border); background: var(--white); white-space: nowrap; position: relative; }
-
   .td-cell { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; vertical-align: middle; transition: all 0.1s; position: relative; }
-  .td-cell.editable { cursor: pointer; }
-  .td-cell.editable:not(.is-weekend):not(.is-holiday):hover { filter: brightness(0.88); }
-
+  .td-cell.editable { cursor: pointer; } .td-cell.editable:not(.is-weekend):not(.is-holiday):hover { filter: brightness(0.88); }
   .cell-inner { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 0.92rem; margin: 0 auto; }
-
-  .status-available { background: var(--available-bg); }
-  .status-vacation { background: var(--vacation-bg); }
-  .status-na { background: var(--na-bg); }
+  .status-available { background: var(--available-bg); } .status-vacation { background: var(--vacation-bg); } .status-na { background: var(--na-bg); }
   .is-weekend { background: var(--weekend-bg) !important; cursor: default !important; }
   .is-holiday { background: var(--holiday-bg) !important; cursor: default !important; }
-
-  .week-sep { border-left: 2px solid #c8bfaa !important; }
-
   .edit-banner { background: var(--gold); color: var(--navy); padding: 8px 2.5rem; font-size: 0.8rem; font-weight: 600; display: none; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; }
   .edit-banner.active { display: flex; }
-
   .config-bar { display: none; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; background: var(--cream-dark); border-radius: 8px; padding: 10px 14px; border: 1px solid var(--border); }
   .config-bar.active { display: flex; }
   .config-bar span { font-size: 0.78rem; color: var(--text-muted); flex: 1; }
-
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(26,39,68,0.6); z-index: 1000; align-items: center; justify-content: center; }
   .modal-overlay.active { display: flex; }
   .modal { background: var(--white); border-radius: 12px; padding: 2rem; width: 380px; max-width: 90vw; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
@@ -125,14 +70,14 @@
   .modal label { font-size: 0.78rem; font-weight: 500; color: var(--text-main); display: block; margin-bottom: 4px; }
   .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
   .modal-error { color: #c0392b; font-size: 0.78rem; margin-top: -8px; margin-bottom: 8px; display: none; }
-
   .del-person { display: none; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); background: #c0392b; color: white; border: none; border-radius: 3px; width: 18px; height: 18px; font-size: 11px; cursor: pointer; align-items: center; justify-content: center; line-height: 1; }
   .edit-mode .del-person { display: flex; }
-
   .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--navy); color: var(--white); padding: 12px 20px; border-radius: 8px; font-size: 0.82rem; font-family: 'JetBrains Mono', monospace; opacity: 0; transform: translateY(10px); transition: all 0.25s; z-index: 2000; pointer-events: none; }
   .toast.show { opacity: 1; transform: translateY(0); }
-
-  @media (max-width: 700px) { .header { padding: 1.2rem 1rem; } .main { padding: 1rem; } .legend-bar, .edit-banner { padding: 0.5rem 1rem; } }
+  .loading-overlay { position: fixed; inset: 0; background: rgba(26,39,68,0.5); z-index: 3000; display: flex; align-items: center; justify-content: center; }
+  .loading-box { background: white; border-radius: 12px; padding: 2rem 2.5rem; text-align: center; font-family: 'JetBrains Mono', monospace; color: var(--navy); font-size: 0.85rem; }
+  .spinner { width: 32px; height: 32px; border: 3px solid var(--cream-dark); border-top-color: var(--navy); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem; }
+  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -159,12 +104,12 @@
   <div class="legend-item"><div class="legend-dot dot-holiday"></div> Festivo</div>
   <div class="legend-item"><div class="legend-dot dot-weekend"></div> Fin de semana</div>
 </div>
+<div class="sync-status" id="syncStatus">⟳ Cargando datos...</div>
 
 <div class="main">
   <div class="config-bar" id="configBar">
     <span>Gestión del equipo:</span>
     <button class="btn btn-gold btn-sm" onclick="openAddPersonModal()">+ Añadir persona</button>
-    <button class="btn btn-sm" style="border:1px solid var(--border);background:white;color:var(--text-main);cursor:pointer;" onclick="openGSheetsModal()">⚙️ Google Sheets</button>
   </div>
   <div id="calendarContainer"></div>
 </div>
@@ -201,51 +146,39 @@
   </div>
 </div>
 
-<!-- MODAL GOOGLE SHEETS -->
-<div class="modal-overlay" id="modalGSheets">
-  <div class="modal">
-    <h3>Google Sheets — Backend</h3>
-    <p>Pega la URL del Web App de tu Google Apps Script para sincronizar datos entre usuarios.</p>
-    <label>URL del script (Web App)</label>
-    <input type="text" id="gsheetsUrl" placeholder="https://script.google.com/macros/s/..." style="font-size:0.72rem;">
-    <p style="font-size:0.72rem;color:var(--text-muted);margin-top:-8px;margin-bottom:1rem;">Sin URL configurada, los datos se guardan solo en este navegador.</p>
-    <div class="modal-actions">
-      <button class="btn btn-outline" style="border-color:var(--border);color:var(--text-main);" onclick="closeModal('modalGSheets')">Cancelar</button>
-      <button class="btn btn-gold" onclick="saveGSheetsUrl()">Guardar</button>
-    </div>
-  </div>
-</div>
-
 <div class="toast" id="toast"></div>
 
 <script>
+// ─── CONFIG ───────────────────────────────────────────────────────────────
 const EDIT_PASSWORD = 'Premium2026';
-const STORAGE_KEY = 'premium_verano_2026_v2';
+const STORAGE_KEY = 'premium_verano_2026_v3';
 
-// Festivos nacionales + Cataluña para julio y agosto 2026
-// Fuente: festivos oficiales España + Cat
+// SharePoint config
+const SP_SITE = 'https://premiumdelevent.sharepoint.com/sites/listapremium';
+const SP_LIST = 'CalendarioVerano2026';
+const SP_API  = `${SP_SITE}/_api/web/lists/getbytitle('${SP_LIST}')/items`;
+
+// ─── CALENDAR DATA ────────────────────────────────────────────────────────
 const HOLIDAYS = {
   '2026-07-25': 'Santiago Apóstol',
   '2026-08-15': 'Asunción de la Virgen',
 };
-
 const MONTHS = [
-  { name: 'Julio', year: 2026, month: 6 },
+  { name: 'Julio',  year: 2026, month: 6 },
   { name: 'Agosto', year: 2026, month: 7 }
 ];
-
 const DAY_NAMES_SHORT = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 
 const DEFAULT_TEAM = [
-  { id: 'pepe',    name: 'Pepe León',          dept: 'Dirección' },
-  { id: 'joan',    name: 'Joan Chaler',         dept: 'Dirección' },
-  { id: 'ivan',    name: 'Iván Muñoz',          dept: 'Dirección' },
-  { id: 'inaki',   name: 'Iñaki Verdú',         dept: 'Comercial' },
-  { id: 'pol',     name: 'Pol García',          dept: 'Comercial' },
-  { id: 'ernesto', name: 'Ernesto Gutiérrez',   dept: 'Comercial' },
-  { id: 'ismael',  name: 'Ismael Delgado',      dept: 'Comercial' },
-  { id: 'teresa',  name: 'Teresa Carulla',      dept: 'Comercial' },
-  { id: 'raul',    name: 'Raúl Fanlo',          dept: 'Comercial' },
+  { id: 'pepe',    name: 'Pepe León',         dept: 'Dirección' },
+  { id: 'joan',    name: 'Joan Chaler',        dept: 'Dirección' },
+  { id: 'ivan',    name: 'Iván Muñoz',         dept: 'Dirección' },
+  { id: 'inaki',   name: 'Iñaki Verdú',        dept: 'Comercial' },
+  { id: 'pol',     name: 'Pol García',         dept: 'Comercial' },
+  { id: 'ernesto', name: 'Ernesto Gutiérrez',  dept: 'Comercial' },
+  { id: 'ismael',  name: 'Ismael Delgado',     dept: 'Comercial' },
+  { id: 'teresa',  name: 'Teresa Carulla',     dept: 'Comercial' },
+  { id: 'raul',    name: 'Raúl Fanlo',         dept: 'Comercial' },
 ];
 
 const STATUS_CYCLE = ['na', 'available', 'vacation'];
@@ -254,67 +187,151 @@ const STATUS_CLASS  = { available: 'status-available', vacation: 'status-vacatio
 const STATUS_LABEL  = { available: 'Disponible', vacation: 'Vacaciones', na: 'No aplica' };
 
 let editMode = false;
-let state = { team: [], cells: {}, gsheetsUrl: '' };
+let spItemId = null; // ID del item en SharePoint
+let state = { team: [], cells: {} };
 
-function dateKey(year, month, date) {
-  return `${year}-${String(month+1).padStart(2,'0')}-${String(date).padStart(2,'0')}`;
-}
-
-function isWeekend(dow) { return dow === 0 || dow === 6; }
-function isHoliday(dk) { return !!HOLIDAYS[dk]; }
-
-function getAllDays(year, month) {
-  const days = [];
-  const d = new Date(year, month, 1);
-  while (d.getMonth() === month) {
-    const dow = d.getDay();
-    const dk = dateKey(year, month, d.getDate());
-    days.push({ date: d.getDate(), dow, dk, weekend: isWeekend(dow), holiday: isHoliday(dk), holidayName: HOLIDAYS[dk] || '' });
-    d.setDate(d.getDate() + 1);
+// ─── INIT ─────────────────────────────────────────────────────────────────
+async function init() {
+  showLoading(true);
+  // Intentar cargar desde SharePoint
+  const loaded = await loadFromSharePoint();
+  if (!loaded) {
+    // Fallback a localStorage
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try { state = JSON.parse(saved); } catch(e) { resetState(); }
+    } else {
+      resetState();
+    }
   }
-  return days;
-}
-
-function getWeeks(days) {
-  const weeks = [];
-  let week = [];
-  days.forEach((d, i) => {
-    if (i > 0 && d.dow === 1 && week.length) { weeks.push(week); week = []; }
-    week.push(d);
-  });
-  if (week.length) weeks.push(week);
-  return weeks;
-}
-
-function cellKey(personId, mIdx, date) { return `${personId}_${mIdx}_${date}`; }
-
-function getCellStatus(personId, mIdx, date) {
-  return state.cells[cellKey(personId, mIdx, date)] || 'na';
-}
-
-function init() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved) {
-    try { state = JSON.parse(saved); } catch(e) { resetState(); return; }
-    if (!state.team || !state.team.length) state.team = [...DEFAULT_TEAM];
-    if (!state.cells) state.cells = {};
-    if (!state.gsheetsUrl) state.gsheetsUrl = '';
-  } else {
-    resetState();
-  }
+  showLoading(false);
   renderCalendar();
 }
 
 function resetState() {
-  state = { team: [...DEFAULT_TEAM], cells: {}, gsheetsUrl: '' };
+  state = { team: [...DEFAULT_TEAM], cells: {} };
   save();
 }
 
-function save() {
+function saveLocal() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  syncToGSheets();
 }
 
+async function save() {
+  saveLocal();
+  await saveToSharePoint();
+}
+
+// ─── SHAREPOINT API ───────────────────────────────────────────────────────
+function getRequestDigest() {
+  return fetch(`${SP_SITE}/_api/contextinfo`, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json;odata=verbose' },
+    credentials: 'include'
+  })
+  .then(r => r.json())
+  .then(d => d.d.GetContextWebInformation.FormDigestValue)
+  .catch(() => null);
+}
+
+async function loadFromSharePoint() {
+  try {
+    const res = await fetch(`${SP_API}?$select=Id,Title,Datos&$filter=Title eq 'CalendarioVerano2026'&$top=1`, {
+      headers: { 'Accept': 'application/json;odata=verbose' },
+      credentials: 'include'
+    });
+    if (!res.ok) { setSyncStatus('⚠️ Sin conexión con SharePoint — usando datos locales'); return false; }
+    const json = await res.json();
+    const items = json.d.results;
+    if (items.length > 0) {
+      spItemId = items[0].Id;
+      const data = JSON.parse(items[0].Datos || '{}');
+      if (data.team && data.cells !== undefined) {
+        state = data;
+        saveLocal();
+        setSyncStatus('✓ Sincronizado con SharePoint · ' + new Date().toLocaleTimeString('es-ES'));
+        return true;
+      }
+    }
+    setSyncStatus('⟳ Primera vez — iniciando calendario en SharePoint');
+    return false;
+  } catch(e) {
+    setSyncStatus('⚠️ Sin conexión con SharePoint — usando datos locales');
+    return false;
+  }
+}
+
+async function saveToSharePoint() {
+  try {
+    const digest = await getRequestDigest();
+    if (!digest) { setSyncStatus('⚠️ No se pudo guardar en SharePoint'); return; }
+
+    const body = JSON.stringify({
+      __metadata: { type: 'SP.Data.CalendarioVerano2026ListItem' },
+      Title: 'CalendarioVerano2026',
+      Datos: JSON.stringify(state)
+    });
+
+    if (spItemId) {
+      // Actualizar item existente
+      await fetch(`${SP_API}(${spItemId})`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json;odata=verbose',
+          'Content-Type': 'application/json;odata=verbose',
+          'X-RequestDigest': digest,
+          'X-HTTP-Method': 'MERGE',
+          'IF-MATCH': '*'
+        },
+        credentials: 'include',
+        body
+      });
+    } else {
+      // Crear nuevo item
+      const res = await fetch(SP_API, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json;odata=verbose',
+          'Content-Type': 'application/json;odata=verbose',
+          'X-RequestDigest': digest,
+        },
+        credentials: 'include',
+        body
+      });
+      const json = await res.json();
+      spItemId = json.d.Id;
+    }
+    setSyncStatus('✓ Guardado en SharePoint · ' + new Date().toLocaleTimeString('es-ES'));
+  } catch(e) {
+    setSyncStatus('⚠️ Error al guardar en SharePoint — guardado local OK');
+  }
+}
+
+function setSyncStatus(msg) {
+  document.getElementById('syncStatus').textContent = msg;
+}
+
+// ─── CALENDAR HELPERS ─────────────────────────────────────────────────────
+function dateKey(y, m, d) { return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`; }
+function getAllDays(year, month) {
+  const days = [], d = new Date(year, month, 1);
+  while (d.getMonth() === month) {
+    const dow = d.getDay(), dk = dateKey(year, month, d.getDate());
+    days.push({ date: d.getDate(), dow, dk, weekend: dow===0||dow===6, holiday: !!HOLIDAYS[dk], holidayName: HOLIDAYS[dk]||'' });
+    d.setDate(d.getDate()+1);
+  }
+  return days;
+}
+function getWeeks(days) {
+  const weeks = []; let week = [];
+  days.forEach((d,i) => { if (i>0 && d.dow===1 && week.length) { weeks.push(week); week=[]; } week.push(d); });
+  if (week.length) weeks.push(week);
+  return weeks;
+}
+function cellKey(pid, mi, date) { return `${pid}_${mi}_${date}`; }
+function getCellStatus(pid, mi, date) { return state.cells[cellKey(pid,mi,date)] || 'na'; }
+
+// ─── RENDER ───────────────────────────────────────────────────────────────
 function renderCalendar() {
   const container = document.getElementById('calendarContainer');
   container.innerHTML = '';
@@ -326,140 +343,90 @@ function renderCalendar() {
   MONTHS.forEach((mon, mIdx) => {
     const allDays = getAllDays(mon.year, mon.month);
     const weeks = getWeeks(allDays);
-
-    const section = document.createElement('div');
-    section.className = 'month-section';
-
-    const title = document.createElement('div');
-    title.className = 'month-title';
-    title.textContent = `${mon.name} ${mon.year}`;
-    section.appendChild(title);
-
-    const wrap = document.createElement('div');
-    wrap.className = 'table-wrap';
+    const section = document.createElement('div'); section.className = 'month-section';
+    const title = document.createElement('div'); title.className = 'month-title';
+    title.textContent = `${mon.name} ${mon.year}`; section.appendChild(title);
+    const wrap = document.createElement('div'); wrap.className = 'table-wrap';
     const table = document.createElement('table');
 
-    // ── Row 1: week headers ──
+    // Week header row
     const trWeeks = document.createElement('tr');
-    const thBlank1 = document.createElement('th');
-    thBlank1.className = 'th-name-header';
-    thBlank1.textContent = 'Persona';
-    trWeeks.appendChild(thBlank1);
-
+    const thB = document.createElement('th'); thB.className = 'th-name-header'; thB.textContent = 'Persona'; trWeeks.appendChild(thB);
     weeks.forEach((wk, wi) => {
-      const th = document.createElement('th');
-      th.className = 'th-week';
-      th.colSpan = wk.length;
-      if (wi > 0) th.style.borderLeft = '2px solid rgba(255,255,255,0.15)';
-      // Show week number
-      const firstWorkday = wk.find(d => !d.weekend && !d.holiday);
-      const dn = firstWorkday ? firstWorkday.date : wk[0].date;
-      th.textContent = `Sem ${wi+1} · ${dn < 10 ? '0'+dn : dn}/${String(mon.month+1).padStart(2,'0')}`;
+      const th = document.createElement('th'); th.className = 'th-week'; th.colSpan = wk.length;
+      if (wi>0) th.style.borderLeft = '2px solid rgba(255,255,255,0.15)';
+      const fd = wk.find(d=>!d.weekend&&!d.holiday); const dn = fd ? fd.date : wk[0].date;
+      th.textContent = `Sem ${wi+1} · ${String(dn).padStart(2,'0')}/${String(mon.month+1).padStart(2,'0')}`;
       trWeeks.appendChild(th);
     });
     table.appendChild(trWeeks);
 
-    // ── Row 2: day headers ──
+    // Day header row
     const trDays = document.createElement('tr');
-    const thPersonH = document.createElement('th');
-    thPersonH.className = 'th-person';
-    trDays.appendChild(thPersonH);
-
+    const thPH = document.createElement('th'); thPH.className = 'th-person'; trDays.appendChild(thPH);
     allDays.forEach((d, di) => {
-      const th = document.createElement('th');
-      th.className = 'th-day';
+      const th = document.createElement('th'); th.className = 'th-day';
       if (d.weekend) th.classList.add('is-weekend');
       if (d.holiday) th.classList.add('is-holiday');
-      if (d.dow === 1 && di > 0) th.style.borderLeft = '2px solid #c8bfaa';
-      const label = d.holiday ? '🎉' : DAY_NAMES_SHORT[d.dow].slice(0,3);
-      th.innerHTML = `<span class="day-num">${d.date}</span><span class="day-name">${label}</span>`;
+      if (d.dow===1 && di>0) th.style.borderLeft = '2px solid #c8bfaa';
+      th.innerHTML = `<span class="day-num">${d.date}</span><span class="day-name">${d.holiday ? '🎉' : DAY_NAMES_SHORT[d.dow].slice(0,3)}</span>`;
       if (d.holiday) th.title = d.holidayName;
       trDays.appendChild(th);
     });
     table.appendChild(trDays);
 
-    // ── Person rows ──
+    // Person rows
     depts.forEach(dept => {
       const persons = state.team.filter(p => p.dept === dept);
       if (!persons.length) return;
-
-      const trDept = document.createElement('tr');
-      trDept.className = 'dept-row';
-      const tdDept = document.createElement('td');
-      tdDept.colSpan = allDays.length + 1;
-      tdDept.textContent = dept.toUpperCase();
-      trDept.appendChild(tdDept);
-      table.appendChild(trDept);
+      const trDept = document.createElement('tr'); trDept.className = 'dept-row';
+      const tdDept = document.createElement('td'); tdDept.colSpan = allDays.length+1; tdDept.textContent = dept.toUpperCase();
+      trDept.appendChild(tdDept); table.appendChild(trDept);
 
       persons.forEach(person => {
-        const tr = document.createElement('tr');
-        tr.className = 'person-row';
-
-        const tdName = document.createElement('td');
-        tdName.className = 'td-person';
+        const tr = document.createElement('tr'); tr.className = 'person-row';
+        const tdName = document.createElement('td'); tdName.className = 'td-person';
         tdName.innerHTML = `${person.name}<button class="del-person" onclick="deletePerson('${person.id}')" title="Eliminar">×</button>`;
         tr.appendChild(tdName);
 
         allDays.forEach((d, di) => {
           const td = document.createElement('td');
-          td.dataset.personId = person.id;
-          td.dataset.monthIdx = mIdx;
-          td.dataset.date = d.date;
-          if (d.dow === 1 && di > 0) td.style.borderLeft = '2px solid #c8bfaa';
-
-          const inner = document.createElement('div');
-          inner.className = 'cell-inner';
-
+          if (d.dow===1 && di>0) td.style.borderLeft = '2px solid #c8bfaa';
+          const inner = document.createElement('div'); inner.className = 'cell-inner';
           if (d.weekend) {
-            td.className = 'td-cell is-weekend';
-            inner.textContent = '';
-            inner.title = 'Fin de semana';
+            td.className = 'td-cell is-weekend'; inner.textContent = ''; inner.title = 'Fin de semana';
           } else if (d.holiday) {
-            td.className = 'td-cell is-holiday';
-            inner.textContent = '🎉';
-            inner.title = d.holidayName;
+            td.className = 'td-cell is-holiday'; inner.textContent = '🎉'; inner.title = d.holidayName;
           } else {
             const status = getCellStatus(person.id, mIdx, d.date);
             td.className = `td-cell ${STATUS_CLASS[status]}`;
-            if (editMode) {
-              td.classList.add('editable');
-              td.onclick = () => cycleCell(td, inner, person.id, mIdx, d.date);
-            }
-            inner.textContent = STATUS_EMOJI[status];
-            inner.title = STATUS_LABEL[status];
+            if (editMode) { td.classList.add('editable'); td.onclick = () => cycleCell(td, inner, person.id, mIdx, d.date); }
+            inner.textContent = STATUS_EMOJI[status]; inner.title = STATUS_LABEL[status];
           }
-
-          td.appendChild(inner);
-          tr.appendChild(td);
+          td.appendChild(inner); tr.appendChild(td);
         });
-
         table.appendChild(tr);
       });
     });
 
-    wrap.appendChild(table);
-    section.appendChild(wrap);
-    container.appendChild(section);
+    wrap.appendChild(table); section.appendChild(wrap); container.appendChild(section);
   });
 }
 
+// ─── CELL CYCLE ──────────────────────────────────────────────────────────
 function cycleCell(td, inner, personId, mIdx, date) {
   if (!editMode) return;
   const key = cellKey(personId, mIdx, date);
   const current = state.cells[key] || 'na';
-  const idx = STATUS_CYCLE.indexOf(current);
-  const next = STATUS_CYCLE[(idx + 1) % STATUS_CYCLE.length];
+  const next = STATUS_CYCLE[(STATUS_CYCLE.indexOf(current)+1) % STATUS_CYCLE.length];
   state.cells[key] = next;
   save();
-
-  // Update classes preserving border
   const bl = td.style.borderLeft;
-  td.className = `td-cell ${STATUS_CLASS[next]} editable`;
-  td.style.borderLeft = bl;
-  inner.textContent = STATUS_EMOJI[next];
-  inner.title = STATUS_LABEL[next];
+  td.className = `td-cell ${STATUS_CLASS[next]} editable`; td.style.borderLeft = bl;
+  inner.textContent = STATUS_EMOJI[next]; inner.title = STATUS_LABEL[next];
 }
 
+// ─── EDIT MODE ────────────────────────────────────────────────────────────
 function enableEdit() {
   editMode = true;
   document.getElementById('editBanner').classList.add('active');
@@ -468,7 +435,6 @@ function enableEdit() {
   document.getElementById('configBar').classList.add('active');
   renderCalendar();
 }
-
 function lockEdit() {
   editMode = false;
   document.getElementById('editBanner').classList.remove('active');
@@ -479,91 +445,65 @@ function lockEdit() {
   showToast('Edición cerrada · Cambios guardados ✓');
 }
 
+// ─── PASSWORD ─────────────────────────────────────────────────────────────
 function openPasswordModal() {
   document.getElementById('pwInput').value = '';
   document.getElementById('pwError').style.display = 'none';
   document.getElementById('modalPassword').classList.add('active');
   setTimeout(() => document.getElementById('pwInput').focus(), 100);
 }
-
 function checkPassword() {
-  if (document.getElementById('pwInput').value === EDIT_PASSWORD) {
-    closeModal('modalPassword');
-    enableEdit();
-  } else {
-    document.getElementById('pwError').style.display = 'block';
-    document.getElementById('pwInput').value = '';
-    document.getElementById('pwInput').focus();
-  }
+  if (document.getElementById('pwInput').value === EDIT_PASSWORD) { closeModal('modalPassword'); enableEdit(); }
+  else { document.getElementById('pwError').style.display = 'block'; document.getElementById('pwInput').value = ''; document.getElementById('pwInput').focus(); }
 }
 
+// ─── ADD/DELETE PERSON ────────────────────────────────────────────────────
 function openAddPersonModal() {
   document.getElementById('newPersonName').value = '';
   document.getElementById('newDeptName').value = '';
   document.getElementById('addError').style.display = 'none';
   const sel = document.getElementById('newPersonDept');
-  sel.innerHTML = '<option value="">— Selecciona existente —</option>';
-  [...new Set(state.team.map(p => p.dept))].forEach(d => {
-    const o = document.createElement('option'); o.value = d; o.textContent = d; sel.appendChild(o);
-  });
+  sel.innerHTML = '<option value="">— Selecciona —</option>';
+  [...new Set(state.team.map(p => p.dept))].forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=d; sel.appendChild(o); });
   document.getElementById('modalAddPerson').classList.add('active');
   setTimeout(() => document.getElementById('newPersonName').focus(), 100);
 }
-
-function addPerson() {
+async function addPerson() {
   const name = document.getElementById('newPersonName').value.trim();
-  const deptSel = document.getElementById('newPersonDept').value;
-  const deptNew = document.getElementById('newDeptName').value.trim();
-  const dept = deptNew || deptSel;
+  const dept = document.getElementById('newDeptName').value.trim() || document.getElementById('newPersonDept').value;
   if (!name || !dept) { document.getElementById('addError').style.display = 'block'; return; }
-  state.team.push({ id: 'p_' + Date.now(), name, dept });
-  save();
-  closeModal('modalAddPerson');
-  renderCalendar();
-  showToast(`${name} añadido/a ✓`);
+  state.team.push({ id: 'p_'+Date.now(), name, dept });
+  await save();
+  closeModal('modalAddPerson'); renderCalendar(); showToast(`${name} añadido/a ✓`);
+}
+async function deletePerson(id) {
+  const p = state.team.find(x => x.id===id);
+  if (!p || !confirm(`¿Eliminar a ${p.name}?`)) return;
+  state.team = state.team.filter(x => x.id!==id);
+  Object.keys(state.cells).forEach(k => { if (k.startsWith(id+'_')) delete state.cells[k]; });
+  await save(); renderCalendar(); showToast(`${p.name} eliminado/a`);
 }
 
-function deletePerson(id) {
-  const p = state.team.find(x => x.id === id);
-  if (!p || !confirm(`¿Eliminar a ${p.name} del calendario?`)) return;
-  state.team = state.team.filter(x => x.id !== id);
-  Object.keys(state.cells).forEach(k => { if (k.startsWith(id + '_')) delete state.cells[k]; });
-  save();
-  renderCalendar();
-  showToast(`${p.name} eliminado/a`);
-}
-
-function openGSheetsModal() {
-  document.getElementById('gsheetsUrl').value = state.gsheetsUrl || '';
-  document.getElementById('modalGSheets').classList.add('active');
-}
-
-function saveGSheetsUrl() {
-  state.gsheetsUrl = document.getElementById('gsheetsUrl').value.trim();
-  save();
-  closeModal('modalGSheets');
-  showToast('URL guardada ✓');
-}
-
-async function syncToGSheets() {
-  if (!state.gsheetsUrl) return;
-  try {
-    await fetch(state.gsheetsUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'save', data: state }) });
-  } catch(e) {}
-}
-
+// ─── UTILS ────────────────────────────────────────────────────────────────
 function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-
 function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2800);
 }
-
+function showLoading(show) {
+  let el = document.getElementById('loadingOverlay');
+  if (show && !el) {
+    el = document.createElement('div'); el.id = 'loadingOverlay'; el.className = 'loading-overlay';
+    el.innerHTML = '<div class="loading-box"><div class="spinner"></div>Cargando calendario...</div>';
+    document.body.appendChild(el);
+  } else if (!show && el) { el.remove(); }
+}
 document.querySelectorAll('.modal-overlay').forEach(el => {
-  el.addEventListener('click', e => { if (e.target === el) el.classList.remove('active'); });
+  el.addEventListener('click', e => { if (e.target===el) el.classList.remove('active'); });
 });
+
+// Añadir columna "Datos" a la lista si no existe — se hace automáticamente al guardar
+// el primer item. SharePoint crea campos de texto por defecto.
 
 init();
 </script>
