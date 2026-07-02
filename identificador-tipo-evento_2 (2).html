@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Identificador de Tipo de Evento | PREMIUM Delevent</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --navy:#1a2744;
+    --navy-dark:#0f1a2e;
+    --cream:#f5f1e8;
+    --cream-2:#efe9db;
+    --gold:#b8863b;
+    --gold-light:#d9ab5f;
+    --line:#d9d3c4;
+    --ink:#22262f;
+    --grey:#6b7280;
+    --ok:#3f7d5c;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:40px 24px 80px;}
+
+  header{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+    border-bottom:2px solid var(--navy);
+    padding-bottom:18px;
+    margin-bottom:32px;
+  }
+  .eyebrow{
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+  }
+  h1{
+    font-family:'DM Serif Display',serif;
+    font-weight:400;
+    font-size:clamp(28px,4vw,38px);
+    color:var(--navy-dark);
+    margin:4px 0 0;
+  }
+  .subtitle{
+    font-size:14px;
+    color:var(--grey);
+    max-width:520px;
+    text-align:right;
+  }
+  @media(max-width:640px){ .subtitle{text-align:left;} header{flex-direction:column;} }
+
+  /* ---- Step card ---- */
+  .card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:28px 30px;
+    margin-bottom:24px;
+  }
+  .card h2{
+    font-family:'DM Serif Display',serif;
+    font-weight:400;
+    font-size:21px;
+    color:var(--navy-dark);
+    margin:0 0 4px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .step-num{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:26px;height:26px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--white);
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    flex:none;
+  }
+  .card p.hint{color:var(--grey);font-size:13.5px;margin:0 0 20px;padding-left:36px;}
+
+  /* ---- Input row ---- */
+  .input-row{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    flex-wrap:wrap;
+    padding-left:36px;
+  }
+  .input-row label{font-size:13.5px;font-weight:600;color:var(--navy-dark);}
+  input[type=number]{
+    font-family:'Inter',sans-serif;
+    font-size:18px;
+    font-weight:600;
+    color:var(--navy-dark);
+    border:1.5px solid var(--line);
+    border-radius:4px;
+    padding:10px 14px;
+    width:180px;
+    background:var(--cream);
+  }
+  input[type=number]:focus{outline:none;border-color:var(--gold);background:var(--white);}
+  .euro{font-size:15px;color:var(--grey);}
+
+  .result-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:16px;
+    margin-left:36px;
+    padding:10px 18px;
+    border-radius:4px;
+    background:var(--navy);
+    color:var(--white);
+    font-family:'DM Serif Display',serif;
+    font-size:19px;
+  }
+  .result-badge .tag{
+    background:var(--gold);
+    color:var(--navy-dark);
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:3px 9px;
+    border-radius:3px;
+  }
+
+  /* ---- Manual selector chips ---- */
+  .chip-row{display:flex;gap:10px;flex-wrap:wrap;padding-left:36px;}
+  .chip{
+    border:1.5px solid var(--line);
+    background:var(--cream);
+    color:var(--navy-dark);
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:14px;
+    padding:9px 20px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .chip:hover{border-color:var(--gold-light);}
+  .chip.active{background:var(--navy);color:var(--white);border-color:var(--navy);}
+
+  /* ---- Detail panel ---- */
+  .detail{
+    background:var(--navy-dark);
+    color:var(--cream);
+    border-radius:6px;
+    padding:0;
+    overflow:hidden;
+    margin-bottom:32px;
+  }
+  .detail-head{
+    background:var(--navy);
+    padding:22px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    border-bottom:3px solid var(--gold);
+  }
+  .detail-head h3{
+    font-family:'DM Serif Display',serif;
+    font-weight:400;
+    font-size:26px;
+    margin:0;
+    color:var(--white);
+  }
+  .detail-head .example{
+    font-size:13px;
+    color:var(--gold-light);
+    font-style:italic;
+  }
+  .criterio-line{
+    padding:14px 30px;
+    font-size:13.5px;
+    color:var(--cream-2);
+    background:rgba(255,255,255,.04);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .criterio-line b{color:var(--gold-light);font-weight:600;}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1px;
+    background:rgba(255,255,255,.08);
+  }
+  .field{
+    background:var(--navy-dark);
+    padding:16px 24px;
+  }
+  .field .k{
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    margin-bottom:5px;
+    font-weight:600;
+  }
+  .field .v{
+    font-size:15.5px;
+    font-weight:600;
+    color:var(--white);
+  }
+
+  /* ---- Comparison table ---- */
+  .comp-wrap{overflow-x:auto;}
+  table.comp{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--white);
+    font-size:13.5px;
+    min-width:680px;
+  }
+  table.comp th, table.comp td{
+    border:1px solid var(--line);
+    padding:10px 12px;
+    text-align:center;
+  }
+  table.comp th{
+    background:var(--navy);
+    color:var(--white);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.03em;
+  }
+  table.comp td:first-child, table.comp th:first-child{
+    text-align:left;
+    background:var(--cream-2);
+    font-weight:600;
+    color:var(--navy-dark);
+  }
+  table.comp tr:nth-child(even) td:not(:first-child){background:#faf8f3;}
+
+  footer{
+    margin-top:40px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:var(--grey);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .section-label{
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--navy);
+    margin:0 0 12px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <div class="eyebrow">PREMIUM Delevent · Herramientas</div>
+      <h1>Identificador de Tipo de Evento</h1>
+    </div>
+    <div class="subtitle">Averigua qué servicio (A–E) aplica a tu evento y qué incluye exactamente.</div>
+  </header>
+
+  <!-- STEP 1: calculator -->
+  <div class="card">
+    <h2><span class="step-num">1</span>Por facturación estimada</h2>
+    <p class="hint">Para eventos estándar, el servicio se asigna automáticamente según la facturación prevista del evento.</p>
+    <div class="input-row">
+      <label for="fact">Facturación estimada del evento</label>
+      <input type="number" id="fact" placeholder="Ej. 75000" min="0" step="1000">
+      <span class="euro">€</span>
+    </div>
+    <div id="calc-result"></div>
+  </div>
+
+  <!-- STEP 2: manual selector -->
+  <div class="card">
+    <h2><span class="step-num">2</span>O selecciona directamente</h2>
+    <p class="hint">¿Ya sabes qué servicio quieres consultar, o es un caso especial (D/E)? Elígelo aquí.</p>
+    <div class="chip-row" id="chip-row">
+      <button class="chip" data-svc="A">Servicio A</button>
+      <button class="chip" data-svc="B">Servicio B</button>
+      <button class="chip" data-svc="C">Servicio C</button>
+      <button class="chip" data-svc="D">Servicio D</button>
+      <button class="chip" data-svc="E">Servicio E</button>
+    </div>
+  </div>
+
+  <!-- DETAIL PANEL -->
+  <div id="detail-panel"></div>
+
+  <!-- COMPARISON TABLE -->
+  <p class="section-label">Comparativa completa</p>
+  <div class="comp-wrap">
+    <table class="comp" id="comp-table"></table>
+  </div>
+  <p style="font-size:12px;color:var(--grey);margin:10px 2px 0;">
+    * Hora persona extra: Habitual 27,35 €/h · Fuera de horario 31,55 €/h · Festivo 39,44 €/h · Festivo fuera de horario 47,32 €/h (igual para los 5 servicios).
+  </p>
+
+  <footer>
+    <span>PREMIUM Delevent · Dirección Comercial y Marketing</span>
+    <span>Dudas sobre criterios → José León / Iván Muñoz</span>
+  </footer>
+
+</div>
+
+<script>
+const SERVICES = {
+  A: {
+    name: "Servicio A",
+    criterio: "Facturación del evento &gt; 100.000 €",
+    ejemplo: "Gartner",
+    fields: [
+      ["Project Manager","Sí"],
+      ["Event Manager","Sí"],
+      ["Horario servicio incluido","8:00 a 22:00"],
+      ["Horario servicio extra","22:00 a 8:00"],
+      ["Personal mantenimiento","4 personas"],
+      ["Horario Adm. Ventas","Mismo horario del organizador"],
+      ["Transp. último día montaje","8:00 / 11:00 / 13:00 / 17:00 / 19:00"],
+      ["Transp. día inauguración","7:00 / 11:00 / 13:00 / 17:00"],
+      ["Transp. días de celebración","8:00 / 13:00 / 17:00"],
+      ["Sobrante sin utilizar","50% sobre tarifa PREMIUM"],
+      ["Sobrante utilizado","100% tarifa PREMIUM"],
+      ["Coste hora persona extra","Habitual 27,35 €/h · Fuera de horario 31,55 €/h · Festivo 39,44 €/h · Festivo fuera de horario 47,32 €/h"],
+      ["Coste de transporte","Incluido"],
+      ["APP","Incluida"],
+    ]
+  },
+  B: {
+    name: "Servicio B",
+    criterio: "Facturación del evento entre 50.000 € y 100.000 €",
+    ejemplo: "VMworld",
+    fields: [
+      ["Project Manager","Sí"],
+      ["Event Manager","Sí"],
+      ["Horario servicio incluido","8:00 a 22:00"],
+      ["Horario servicio extra","22:00 a 8:00"],
+      ["Personal mantenimiento","2 personas"],
+      ["Horario Adm. Ventas","Mismo horario del organizador"],
+      ["Transp. último día montaje","8:00 / 11:00 / 13:00 / 17:00"],
+      ["Transp. día inauguración","7:00 / 12:00 / 17:00"],
+      ["Transp. días de celebración","10:00 / 17:00"],
+      ["Sobrante sin utilizar","50% sobre tarifa PREMIUM"],
+      ["Sobrante utilizado","100% tarifa PREMIUM"],
+      ["Coste hora persona extra","Habitual 27,35 €/h · Fuera de horario 31,55 €/h · Festivo 39,44 €/h · Festivo fuera de horario 47,32 €/h"],
+      ["Coste de transporte","Incluido"],
+      ["APP","Incluida"],
+    ]
+  },
+  C: {
+    name: "Servicio C",
+    criterio: "Facturación del evento &lt; 50.000 €",
+    ejemplo: "Metalmadrid",
+    fields: [
+      ["Project Manager","No"],
+      ["Event Manager","No"],
+      ["Horario servicio incluido","8:00 a 18:00"],
+      ["Horario servicio extra","18:00 a 8:00"],
+      ["Personal mantenimiento","Ninguna"],
+      ["Horario Adm. Ventas","A negociar"],
+      ["Transp. último día montaje","8:00 / 11:00 / 13:00 / 17:00"],
+      ["Transp. día inauguración","7:00 / 12:00 / 17:00"],
+      ["Transp. días de celebración","10:00 / 17:00"],
+      ["Sobrante sin utilizar","No hay"],
+      ["Sobrante utilizado","No hay"],
+      ["Coste hora persona extra","Habitual 27,35 €/h · Fuera de horario 31,55 €/h · Festivo 39,44 €/h · Festivo fuera de horario 47,32 €/h"],
+      ["Coste de transporte","2,02 €/km"],
+      ["APP","Incluida"],
+    ]
+  },
+  D: {
+    name: "Servicio D",
+    criterio: "Caso especial — a valorar con Dirección Comercial",
+    ejemplo: "Kubecon",
+    fields: [
+      ["Project Manager","Sí"],
+      ["Event Manager","Sí"],
+      ["Horario servicio incluido","8:00 a 22:00"],
+      ["Horario servicio extra","22:00 a 8:00"],
+      ["Personal mantenimiento","2 personas"],
+      ["Horario Adm. Ventas","Mismo horario del organizador"],
+      ["Transp. último día montaje","A negociar"],
+      ["Transp. día inauguración","A negociar"],
+      ["Transp. días de celebración","A negociar"],
+      ["Sobrante sin utilizar","0% tarifa PREMIUM"],
+      ["Sobrante utilizado","100% tarifa PREMIUM"],
+      ["Coste hora persona extra","Habitual 27,35 €/h · Fuera de horario 31,55 €/h · Festivo 39,44 €/h · Festivo fuera de horario 47,32 €/h"],
+      ["Coste de transporte","2,02 €/km"],
+      ["APP","Incluida"],
+    ]
+  },
+  E: {
+    name: "Servicio E",
+    criterio: "Caso especial — a valorar con Dirección Comercial",
+    ejemplo: "Egurtek",
+    fields: [
+      ["Project Manager","No"],
+      ["Event Manager","No"],
+      ["Horario servicio incluido","8:00 a 18:00"],
+      ["Horario servicio extra","18:00 a 8:00"],
+      ["Personal mantenimiento","1 persona"],
+      ["Horario Adm. Ventas","A negociar"],
+      ["Transp. último día montaje","A negociar"],
+      ["Transp. día inauguración","A negociar"],
+      ["Transp. días de celebración","A negociar"],
+      ["Sobrante sin utilizar","0% tarifa PREMIUM"],
+      ["Sobrante utilizado","100% tarifa PREMIUM"],
+      ["Coste hora persona extra","Habitual 27,35 €/h · Fuera de horario 31,55 €/h · Festivo 39,44 €/h · Festivo fuera de horario 47,32 €/h"],
+      ["Coste de transporte","2,02 €/km"],
+      ["APP","Incluida"],
+    ]
+  }
+};
+
+const panel = document.getElementById('detail-panel');
+const chips = document.querySelectorAll('.chip');
+const calcResult = document.getElementById('calc-result');
+const factInput = document.getElementById('fact');
+
+function renderDetail(key){
+  chips.forEach(c => c.classList.toggle('active', c.dataset.svc === key));
+  const s = SERVICES[key];
+  const fieldsHtml = s.fields.map(([k,v]) => `
+    <div class="field">
+      <div class="k">${k}</div>
+      <div class="v">${v}</div>
+    </div>`).join('');
+  panel.innerHTML = `
+    <div class="detail">
+      <div class="detail-head">
+        <h3>${s.name}</h3>
+        <span class="example">Ejemplo real: ${s.ejemplo}</span>
+      </div>
+      <div class="criterio-line"><b>Criterio:</b> ${s.criterio}</div>
+      <div class="grid">${fieldsHtml}</div>
+    </div>`;
+  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+chips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    factInput.value = '';
+    calcResult.innerHTML = '';
+    renderDetail(chip.dataset.svc);
+  });
+});
+
+factInput.addEventListener('input', () => {
+  const val = parseFloat(factInput.value);
+  if (isNaN(val) || val < 0) { calcResult.innerHTML = ''; return; }
+  let key, label;
+  if (val > 100000) { key = 'A'; }
+  else if (val >= 50000) { key = 'B'; }
+  else { key = 'C'; }
+  calcResult.innerHTML = `
+    <div class="result-badge">
+      <span class="tag">Recomendado</span>
+      ${SERVICES[key].name}
+    </div>`;
+  renderDetail(key);
+});
+
+// Comparison table
+const compRows = [
+  ["Project Manager","A","B","C","D","E"],
+  ["Event Manager"],
+  ["Horario incluido"],
+  ["Mantenimiento"],
+  ["Transporte"],
+  ["Sobrante sin usar"],
+  ["Ejemplo real"],
+];
+const compData = [
+  ["Project Manager","Sí","Sí","No","Sí","No"],
+  ["Event Manager","Sí","Sí","No","Sí","No"],
+  ["Horario incluido","8–22h","8–22h","8–18h","8–22h","8–18h"],
+  ["Mantenimiento","4 pers.","2 pers.","Ninguna","2 pers.","1 pers."],
+  ["Transporte","Incluido","Incluido","2,02 €/km","2,02 €/km","2,02 €/km"],
+  ["Sobrante sin usar","50% tarifa","50% tarifa","No hay","0% tarifa","0% tarifa"],
+  ["Hora persona extra","27,35–47,32 €/h","27,35–47,32 €/h","27,35–47,32 €/h","27,35–47,32 €/h","27,35–47,32 €/h"],
+  ["Ejemplo real","Gartner","VMworld","Metalmadrid","Kubecon","Egurtek"],
+];
+const table = document.getElementById('comp-table');
+let thead = '<tr><th></th><th>Servicio A</th><th>Servicio B</th><th>Servicio C</th><th>Servicio D</th><th>Servicio E</th></tr>';
+let tbody = compData.map(row => `<tr>${row.map((c,i)=>`<td>${c}</td>`).join('')}</tr>`).join('');
+table.innerHTML = thead + tbody;
+
+// default view
+renderDetail('A');
+</script>
+</body>
+</html>
