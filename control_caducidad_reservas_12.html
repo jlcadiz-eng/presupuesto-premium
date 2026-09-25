@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control de Caducidad de Reservas — PREMIUM</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<script type="application/json" id="default-ab-data">
+[{"num": "CL000052", "nombre": "2003 S.A.", "grupo": "A"}, {"num": "CL000293", "nombre": "4 FOREVERYTHING", "grupo": "A"}, {"num": "CL001929", "nombre": "ABSOLUTE EXPERIENCIAS DE COMUNICACION S.L.", "grupo": "B"}, {"num": "CL007743", "nombre": "ACCIONA CULTURAL ENGINEERING, S.A.U.", "grupo": "B"}, {"num": "CL000724", "nombre": "ACS AUDIOVISUAL SOLUTIONS", "grupo": "B"}, {"num": "CL000746", "nombre": "ADEXPO BV", "grupo": "A"}, {"num": "CL000300", "nombre": "AGBAR, SLU", "grupo": "B"}, {"num": "CL000339", "nombre": "AGENCIA CATALANA DE TURISME", "grupo": "B"}, {"num": "CL000224", "nombre": "AIM SPAIN EVENTS & DMC, SL", "grupo": "B"}, {"num": "CL008260", "nombre": "ALIVE EVENTS, SASU", "grupo": "A"}, {"num": "CL002059", "nombre": "ALTIUS MEDIA", "grupo": "A"}, {"num": "CL008112", "nombre": "AMG SERVICIOS DE MARKETING PROMOCIONAL S.L.", "grupo": "B"}, {"num": "CL000023", "nombre": "APPLE TREE COMMUNICATION,SL", "grupo": "B"}, {"num": "CL000123", "nombre": "ASTOUND", "grupo": "B"}, {"num": "CL008395", "nombre": "AVRENTAL247 GROUP S.L.", "grupo": "B"}, {"num": "CL000349", "nombre": "B NETWORK BARCELONA MANAGEMENT, S.L.", "grupo": "B"}, {"num": "CL000637", "nombre": "BBVA", "grupo": "A"}, {"num": "CL000016", "nombre": "BCN CONGRESS SL", "grupo": "A"}, {"num": "CL000306", "nombre": "BCO CONGRESS SL", "grupo": "B"}, {"num": "CL000021", "nombre": "BILBAO EXHIBITION CENTRE, BEC CONVENCIONES", "grupo": "A"}, {"num": "CL000625", "nombre": "BRAND FUEL, LTD.", "grupo": "B"}, {"num": "CL000132", "nombre": "BRAND SPACE SL", "grupo": "B"}, {"num": "CL000044", "nombre": "CAPRIX 2005, S.L.", "grupo": "B"}, {"num": "CL000304", "nombre": "CENTRO COMERCIAL PORTUGAL S.A (HOTEL MARRIOT AUDITORIUM)", "grupo": "B"}, {"num": "CL001129", "nombre": "CENTRO DE CONGRESSOS DE LISBOA", "grupo": "B"}, {"num": "CL000011", "nombre": "CIRCUITS DE CATALUNYA, S.L.", "grupo": "A"}, {"num": "CL002786", "nombre": "COCA COLA", "grupo": "B"}, {"num": "CL006145", "nombre": "CONGRESO Y TURISMO DE SEVILLA, SA", "grupo": "A"}, {"num": "CL000003", "nombre": "DE BOER ESTRUCTURAS ESPAÑA, S.L.U.", "grupo": "A"}, {"num": "CL001030", "nombre": "DEPLANING,S.L.", "grupo": "B"}, {"num": "CL000252", "nombre": "DESJUST, SL (HYATT REGENCY BARCELONA TOWER)", "grupo": "B"}, {"num": "CL008986", "nombre": "DORNA SPORTS, S.L.", "grupo": "A"}, {"num": "CL003195", "nombre": "DUBLIN WEB SUMMIT LTD", "grupo": "A"}, {"num": "CL000396", "nombre": "EDT EVENTOS, S.A.", "grupo": "A"}, {"num": "CL000096", "nombre": "EL CONSORCI DE LA ZONA FRANCA DE BARCELONA", "grupo": "B"}, {"num": "CL000008", "nombre": "ELLIS EVENTS GMBH", "grupo": "A"}, {"num": "CL000026", "nombre": "ESTUDI FERRAN SENDRA, S.L.", "grupo": "B"}, {"num": "CL003830", "nombre": "EVENTISIMO, S.L.U", "grupo": "A"}, {"num": "CL000493", "nombre": "EXHIBITION STAND DESIGN DECOR, S.L.", "grupo": "B"}, {"num": "CL000089", "nombre": "FABERSTUDIO, S.L.", "grupo": "B"}, {"num": "CL003646", "nombre": "FEIRA INTERNACIONAL DE LISBOA", "grupo": "A"}, {"num": "CL001211", "nombre": "FERIA MUESTRARIO INTERNACIONAL DE VALENCIA", "grupo": "A"}, {"num": "CL001666", "nombre": "FILDESIGN-INOVAÇAO SERVIÇOS TECNICOS E DECORAÇAO, SA", "grupo": "B"}, {"num": "CL000001", "nombre": "FIRA BARCELONA", "grupo": "A"}, {"num": "CL007816", "nombre": "FIRA CCIB, SL", "grupo": "A"}, {"num": "CL009034", "nombre": "FIRA CIRCUIT, S.L.U.", "grupo": "B"}, {"num": "CL008915", "nombre": "FOCUS LAVINIA IGOR FLOCK UTE", "grupo": "B"}, {"num": "CL008281", "nombre": "FORMAT SARL", "grupo": "B"}, {"num": "CL000196", "nombre": "FUNDACIO AGBAR", "grupo": "B"}, {"num": "CL000039", "nombre": "FUTBOL CLUB BARCELONA", "grupo": "B"}, {"num": "CL007982", "nombre": "GARTNER ESPAÑA SLU", "grupo": "A"}, {"num": "CL003860", "nombre": "GEORGE P. JOHNSON UK LTD", "grupo": "A"}, {"num": "CL007602", "nombre": "GES", "grupo": "A"}, {"num": "CL001037", "nombre": "GIELISSEN EXHIBITION & EVENT SERVICES B.V.", "grupo": "A"}, {"num": "CL000180", "nombre": "GLOBAL BUSINESS TRAVEL SPAIN, SLU", "grupo": "B"}, {"num": "CL007794", "nombre": "HOTEL DE LA VILLA OLIMPICA, SA", "grupo": "B"}, {"num": "CL008175", "nombre": "HUAWEI TECHNOLOGIES DÜSSELDORF GMBH", "grupo": "B"}, {"num": "CL000028", "nombre": "INICIATIVES EVENTS, S.L.", "grupo": "B"}, {"num": "CL001364", "nombre": "INSTITUCION FERIAL ALICANTINA", "grupo": "B"}, {"num": "CL000063", "nombre": "INSTITUCION FERIAL DE MADRID, IFEMA", "grupo": "A"}, {"num": "CL000194", "nombre": "INTERMEDIO MONTAJES, S. L.", "grupo": "B"}, {"num": "CL000057", "nombre": "INTERNATIONAL MANAGEMENT GROUP LLC (IMG)", "grupo": "B"}, {"num": "CL000128", "nombre": "ITALIANS DO IT BETTER S.L.U.", "grupo": "B"}, {"num": "CL000315", "nombre": "J. CAMPILLO, S. L.", "grupo": "B"}, {"num": "CL007879", "nombre": "JACK MORTON", "grupo": "A"}, {"num": "CL000024", "nombre": "JMT EVENTSERVICE GMBH BERLIN", "grupo": "B"}, {"num": "CL000010", "nombre": "JMT INTERNATIONAL", "grupo": "A"}, {"num": "CL007842", "nombre": "JMT NEDERLAND B.V.", "grupo": "A"}, {"num": "CL000309", "nombre": "KOA FACTORY, S.L.", "grupo": "B"}, {"num": "CL000055", "nombre": "LOGISTICA DE EVENTOS SL (LD EVENTOS)", "grupo": "B"}, {"num": "CL000025", "nombre": "M6 GRUPO EMPRESARIAL", "grupo": "B"}, {"num": "CL000048", "nombre": "MAC GROUP STANDS SL", "grupo": "B"}, {"num": "CL000032", "nombre": "MARVA-Mª DOLORES MARTINEZ VARA DE REY, SA.", "grupo": "A"}, {"num": "CL000020", "nombre": "MCI SPAIN EVENT SERVICES, S.A.", "grupo": "B"}, {"num": "CL008040", "nombre": "MEDIATEM CANALES TEMATICOS S.L.", "grupo": "B"}, {"num": "CL000019", "nombre": "MESTALLA INTERIORISMO, S. L.", "grupo": "B"}, {"num": "CL000115", "nombre": "METALIA GESTION INTEGRAL, SL", "grupo": "B"}, {"num": "CL009339", "nombre": "MIRO TASARIM DEKORASYON SAN.VE TIC. LTD. STI", "grupo": "B"}, {"num": "CL000074", "nombre": "MONTAJES FERIAS Y CONGRESOS, MSD SL", "grupo": "B"}, {"num": "CL004694", "nombre": "MTS GLOBE 4 SERVICES SL", "grupo": "B"}, {"num": "CL000543", "nombre": "MUT MARKETING SL", "grupo": "B"}, {"num": "CL005259", "nombre": "MUTUA MADRILEÑA", "grupo": "B"}, {"num": "CL009501", "nombre": "NATURACT EVENTS AND SPACES PRODUCTION, S.L.", "grupo": "B"}, {"num": "CL000311", "nombre": "NH HOTELES ESPAÑA, S.A.", "grupo": "B"}, {"num": "CL000419", "nombre": "NOE CONCEPTOS ESPECIALES, S.L.", "grupo": "B"}, {"num": "CL009586", "nombre": "NOISY ESTUDIO MADRID, S.L.", "grupo": "B"}, {"num": "CL008097", "nombre": "NTERACTIVE CONSULTING AND EVENTS LTD", "grupo": "A"}, {"num": "CL008833", "nombre": "NUTANIX NETHERLANDS, B.V.", "grupo": "A"}, {"num": "CL000022", "nombre": "NÜSSLI IBERIA, S.A.", "grupo": "A"}, {"num": "CL009389", "nombre": "PALMA AND SILVESTRE LDA", "grupo": "B"}, {"num": "CL001262", "nombre": "PARTY RENT PARIS SARL", "grupo": "A"}, {"num": "CL007723", "nombre": "PHIAPA-LINE SAS – ALIVE EVENTS", "grupo": "A"}, {"num": "CL000027", "nombre": "PORT AVENTURA ENTERTAINMENT, S.A.U.", "grupo": "A"}, {"num": "CL000033", "nombre": "PRIMAVERA SOUND SL", "grupo": "B"}, {"num": "CL009030", "nombre": "PRIO EVENT MANAGEMENT GmbH", "grupo": "B"}, {"num": "CL000034", "nombre": "PRODUCCIONES EXPO, SL.", "grupo": "B"}, {"num": "CL000015", "nombre": "PROJEKT P GMBH", "grupo": "B"}, {"num": "CL000013", "nombre": "PUBLI-VERD, S. L. ** NO USAR", "grupo": "A"}, {"num": "CL000040", "nombre": "RAMON MARIA BONIFAZ BARRIO", "grupo": "B"}, {"num": "CL006143", "nombre": "REAL CLUB DE TENIS BARCELONA 1899", "grupo": "B"}, {"num": "CL000005", "nombre": "SAP ESPAÑA S.A.", "grupo": "A"}, {"num": "CL009069", "nombre": "SCENIC CREATIVE SOLUTIONS, S.L.", "grupo": "B"}, {"num": "CL000155", "nombre": "SERVEIS DE L'ESPECTACLE FOCUS , S.A.", "grupo": "B"}, {"num": "CL000002", "nombre": "SERVIS COMPLET S.L.", "grupo": "A"}, {"num": "CL007988", "nombre": "SOCIÉTÉ EUROPÉENNE DE CARDIOLOGIE", "grupo": "A"}, {"num": "CL000009", "nombre": "SPARKS MARKETING (EMEA) LIMITED", "grupo": "A"}, {"num": "CL008293", "nombre": "SPEAKS FOR ITSELF THE AGENCY S. L.", "grupo": "B"}, {"num": "CL008740", "nombre": "SPIRO UK DIVISION LIMITED", "grupo": "A"}, {"num": "CL000504", "nombre": "SYMA SYSTEM GMBH - DOPPELT", "grupo": "B"}, {"num": "CL007927", "nombre": "TENNIUM SPAIN S.L.U", "grupo": "B"}, {"num": "CL000281", "nombre": "TERRAPINN HOLDINGS LTD.", "grupo": "B"}, {"num": "CL007795", "nombre": "THE BOSTON CONSULTING GROUP, INC. – GLOBAL SERVICES", "grupo": "B"}, {"num": "CL000083", "nombre": "TONI SEGUI, S. L.", "grupo": "B"}, {"num": "CL000076", "nombre": "UNIT ELEMENTS, S.L.", "grupo": "B"}, {"num": "CL008167", "nombre": "VEEVA SYSTEMS SPAIN S.L.", "grupo": "B"}, {"num": "CL000502", "nombre": "VIAJES EL CORTE INGLES, S.A.", "grupo": "B"}, {"num": "CL000121", "nombre": "VIAJES PACIFICO SA", "grupo": "A"}, {"num": "CL007991", "nombre": "VOK DAMS EVENTS GMBH", "grupo": "A"}, {"num": "CL009193", "nombre": "WEYOU ESPAÑA, S.L.", "grupo": "A"}, {"num": "CL009297", "nombre": "XPO KORTRIJK ORGANIZACIONES ESPAÑA, S.L.", "grupo": "A"}, {"num": "CL008717", "nombre": "A-BOOTH BV", "grupo": "A"}, {"num": "CL009162", "nombre": "A-BOOTH SERVICIOS DE FERIA, S.L.", "grupo": "A"}, {"num": "CL009188", "nombre": "STUDIOARANCIO, S.R.L.", "grupo": "A"}, {"num": "CL009252", "nombre": "BV ALTER EXPO", "grupo": "A"}, {"num": "CL009376", "nombre": "IRMARFER S.A", "grupo": "A"}, {"num": "CL009544", "nombre": "LISBOA FEIRAS CONGRESSOS E EVENTOS-FCE ASSOCIAÇAO EMPRESARIAL", "grupo": "A"}, {"num": "CL000054", "nombre": "NEBULA EXHIBITS POLAND SP. Z O.O.", "grupo": "B"}, {"num": "CL000129", "nombre": "SOLUCIONES AUDIOVISUALES 2005, SL", "grupo": "B"}, {"num": "CL003550", "nombre": "EVENTEAM, LDA", "grupo": "B"}, {"num": "CL007974", "nombre": "GLOBALDATA UK LTD", "grupo": "B"}, {"num": "CL000393", "nombre": "ACCIONA EVENTS AND INCENTIVES, S.L.U.", "grupo": "B"}, {"num": "CL000441", "nombre": "EXPERIENTIA AGENCY, S.L.", "grupo": "B"}, {"num": "CL003226", "nombre": "EASYFAIRS IBERIA, S.L.U.", "grupo": "B"}, {"num": "CL000739", "nombre": "AMG SERVICIOS DE MARKETING PROMOCIONAL, S. L.", "grupo": "B"}, {"num": "", "nombre": "HAVAS EVENTS", "grupo": "B"}, {"num": "CL009003", "nombre": "LIVE BY GL EVENTS, SCP", "grupo": "A"}, {"num": "", "nombre": "MARBET VIAJES ESPAÑA S.A.", "grupo": "B"}, {"num": "", "nombre": "MARBET", "grupo": "B"}, {"num": "CL005025", "nombre": "MARBET EVENTOS, SA", "grupo": "B"}, {"num": "CL005389", "nombre": "MULTILEM ESPAÑA, EVENTOS Y STANDS PARA FERIAS SLU", "grupo": "A"}, {"num": "CL009445", "nombre": "AIM SPAIN EVENTS AND CONFERENCES, S.L.", "grupo": "B"}, {"num": "", "nombre": "ATLETICO DE MADRID", "grupo": "B"}, {"num": "CL009348", "nombre": "ATREVIA COMUNICACION SLU", "grupo": "B"}, {"num": "CL003128", "nombre": "DISSIMILITY COMUNICACION, SL", "grupo": "B"}, {"num": "CL007639", "nombre": "GRUP MEDIAPRO, S.L.U. (MEDIAPRODUCCION S.L.U.)", "grupo": "B"}, {"num": "", "nombre": "THE PROJECT MUSIC COMPANY SL", "grupo": "B"}, {"num": "CL008249", "nombre": "THE MEDIAPRO STUDIO SLU", "grupo": "B"}]
+</script>
+
+<script type="application/json" id="default-exc-data">
+[{"num": "CL000071", "nombre": "AVEBIOM", "motivo": "Excepción automática (facturación > 20.000 € en 2024 y 2025)"}, {"num": "CL008322", "nombre": "ERO LOGISTICS and TRADE, S.L.", "motivo": "Excepción automática (facturación > 20.000 € en 2024 y 2025)"}, {"num": "CL000142", "nombre": "CONTEMPORANEA EVENTI, S.L.", "motivo": "Excepción automática (facturación > 20.000 € en 2024 y 2025)"}, {"num": "CL000087", "nombre": "IBERSTAND S.L.", "motivo": "Excepción automática (facturación > 20.000 € en 2024 y 2025)"}, {"num": "CL000358", "nombre": "BMOTION AUDIOVISUAL, SL", "motivo": "Excepción automática (facturación > 20.000 € en 2024 y 2025)"}, {"num": "CL000455", "nombre": "JOAN CATALAN LOPEZ", "motivo": "Excepción automática (facturación > 20.000 € en 2024 y 2025)"}, {"num": "CL000119", "nombre": "PARAFINA D&C, S.L.U.", "motivo": "Excepción automática (facturación > 20.000 € en 2024 y 2025)"}, {"num": "CL000116", "nombre": "RJ MONTAJES DE STAND, S. L.", "motivo": "Excepción automática (facturación > 20.000 € en 2024 y 2025)"}, {"num": "CL001216", "nombre": "INSTITUCION FERIAL CASTILLA Y LEON", "motivo": "Excepción 2026 — cliente fiel (revisar a final de año)"}, {"num": "CL000228", "nombre": "NOISY STUDIO,S.L.U.", "motivo": "Excepción 2026 — cliente fiel (revisar a final de año)"}, {"num": "CL009329", "nombre": "GRUPO SIK MANTENIMIENTO, S.L. (TEAM BRAZIL)", "motivo": "Excepción 2026 — cliente fiel (revisar a final de año)"}, {"num": "CL001721", "nombre": "BABBLA ESTUDIO, S.L.", "motivo": "Excepción 2026 — cliente fiel (revisar a final de año)"}, {"num": "CL009015", "nombre": "CONSULTORIA DE EVENTOS MTGLOBAL, S.A.", "motivo": "Excepción 2026 — cliente fiel (revisar a final de año)"}, {"num": "CL006114", "nombre": "REIAL AUTOMOBIL CLUB DE CATALUNYA", "motivo": "Excepción 2026 — cliente fiel (revisar a final de año)"}, {"num": "CL005621", "nombre": "OMNICOM MEDIA GROUP, S.L.", "motivo": "Excepción 2026 — cliente fiel (revisar a final de año)"}, {"num": "CL007080", "nombre": "GSMC 000729419A, S.L.N.E", "motivo": "Excepción 2026 — cliente fiel (revisar a final de año)"}, {"num": "", "nombre": "HISEAS AND GB EXPO SL", "motivo": "Excepción 2026 — cliente fiel (revisar a final de año)"}]
+</script>
+
+<script type="application/json" id="default-rev-data">
+[{"num": "CL000013", "nombre": "PUBLI-VERD, S. L. ** NO USAR", "motivo": "Tratado como C/D por circunstancias comerciales"}, {"num": "CL000293", "nombre": "4 FOREVERYTHING", "motivo": "Tratado como C/D por circunstancias comerciales"}, {"num": "CL000746", "nombre": "ADEXPO BV", "motivo": "Tratado como C/D por circunstancias comerciales"}, {"num": "CL000025", "nombre": "M6 GRUPO EMPRESARIAL", "motivo": "Tratado como C/D por circunstancias comerciales"}, {"num": "CL000419", "nombre": "NOE CONCEPTOS ESPECIALES, S.L.", "motivo": "Tratado como C/D por circunstancias comerciales"}, {"num": "CL000493", "nombre": "EXHIBITION STAND DESIGN DECOR, S.L.", "motivo": "Tratado como C/D por circunstancias comerciales"}]
+</script>
+
+<style>
+  :root{
+    --navy:#122340;
+    --navy-dark:#0B1830;
+    --ice:#F4F7FB;
+    --ice-2:#E7EEF6;
+    --amber:#C9982E;
+    --amber-dark:#A97D1F;
+    --text:#1C2A3A;
+    --muted:#5B6B7F;
+    --border:#DCE3EC;
+    --ok:#1E7D45;
+    --ok-bg:#E7F5EC;
+    --warn:#B4790D;
+    --warn-bg:#FDF3E1;
+    --danger:#B0271E;
+    --danger-bg:#FBEAE8;
+    --shadow:0 2px 10px rgba(18,35,64,.07);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--ice); color:var(--text); line-height:1.45;
+  }
+  header{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);
+    color:#fff; padding:28px 32px;
+  }
+  header h1{margin:0 0 4px; font-size:22px; font-weight:700; letter-spacing:.2px;}
+  header p{margin:0; color:#C7D2E3; font-size:13.5px; max-width:780px;}
+  .brand{display:flex; align-items:center; gap:12px; margin-bottom:10px;}
+  .brand .dot{width:10px; height:10px; border-radius:50%; background:var(--amber);}
+  .brand span{font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--amber); font-weight:700;}
+
+  main{max-width:1180px; margin:0 auto; padding:28px 32px 60px;}
+
+  .card{
+    background:#fff; border:1px solid var(--border); border-radius:10px;
+    padding:22px 24px; margin-bottom:20px; box-shadow:var(--shadow);
+  }
+  .card h2{margin:0 0 4px; font-size:16px; font-weight:700;}
+  .card .sub{margin:0 0 16px; font-size:13px; color:var(--muted);}
+
+  /* --- management panels (details/summary) --- */
+  details.mgmt{border:1px solid var(--border); border-radius:8px; margin-bottom:14px; overflow:hidden;}
+  details.mgmt summary{
+    list-style:none; cursor:pointer; padding:14px 18px; background:var(--ice);
+    display:flex; align-items:center; justify-content:space-between; gap:10px; font-weight:700; font-size:14px;
+  }
+  details.mgmt summary::-webkit-details-marker{display:none;}
+  details.mgmt summary .chip{
+    font-size:11.5px; font-weight:700; color:var(--muted); background:#fff; border:1px solid var(--border);
+    border-radius:20px; padding:3px 10px;
+  }
+  details.mgmt summary .arrow{transition:.15s; color:var(--muted); font-size:12px;}
+  details.mgmt[open] summary .arrow{transform:rotate(90deg);}
+  .mgmt-body{padding:16px 18px 18px;}
+  .mgmt-toolbar{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px;}
+  .mgmt-toolbar .spacer{flex:1;}
+  .file-label{
+    font-size:12.5px; font-weight:700; color:var(--navy); background:#fff; border:1px solid var(--border);
+    border-radius:6px; padding:7px 12px; cursor:pointer;
+  }
+  .file-label:hover{border-color:var(--amber);}
+  .file-label input{display:none;}
+
+  .edit-table-wrap{max-height:340px; overflow:auto; border:1px solid var(--border); border-radius:8px;}
+  table.edit-table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  table.edit-table thead th{
+    background:var(--navy); color:#fff; text-align:left; padding:8px 10px; font-weight:700;
+    font-size:11px; text-transform:uppercase; letter-spacing:.3px; position:sticky; top:0;
+  }
+  table.edit-table tbody td{padding:4px 6px; border-bottom:1px solid var(--border);}
+  table.edit-table tbody tr:hover{background:var(--ice);}
+  table.edit-table input, table.edit-table select{
+    width:100%; border:1px solid transparent; background:transparent; padding:6px 6px; font-size:12.5px;
+    font-family:inherit; border-radius:4px; color:var(--text);
+  }
+  table.edit-table input:hover, table.edit-table select:hover{border-color:var(--border);}
+  table.edit-table input:focus, table.edit-table select:focus{
+    outline:none; border-color:var(--amber); background:#fff;
+  }
+  td.col-num input{font-variant-numeric:tabular-nums; font-weight:600;}
+  td.col-del{width:34px; text-align:center;}
+  .row-del-btn{
+    background:none; border:none; color:var(--danger); cursor:pointer; font-size:15px; padding:4px 6px; border-radius:4px;
+  }
+  .row-del-btn:hover{background:var(--danger-bg);}
+
+  button{
+    font-family:inherit; font-size:14px; font-weight:700; border:none; border-radius:7px;
+    padding:12px 22px; cursor:pointer; transition:.15s;
+  }
+  .btn-primary{background:var(--amber); color:#fff;}
+  .btn-primary:hover{background:var(--amber-dark);}
+  .btn-primary:disabled{background:#C9C9C9; cursor:not-allowed;}
+  .btn-ghost{background:#fff; color:var(--navy); border:1px solid var(--border); font-size:12.5px; padding:8px 14px;}
+  .btn-ghost:hover{border-color:var(--navy);}
+  .btn-ghost.danger{color:var(--danger);}
+  .btn-ghost.danger:hover{border-color:var(--danger);}
+  .btn-sm{font-size:12px; padding:6px 11px; border-radius:6px;}
+
+  .dropzone{
+    border:1.5px dashed var(--border); border-radius:8px; background:var(--ice);
+    padding:18px; text-align:center; cursor:pointer; transition:.15s;
+    display:flex; flex-direction:column; align-items:center; gap:6px; min-height:108px; justify-content:center;
+  }
+  .dropzone:hover{border-color:var(--amber); background:var(--ice-2);}
+  .dropzone.has-file{border-style:solid; border-color:var(--ok); background:var(--ok-bg);}
+  .dz-icon{font-size:22px;}
+  .dz-title{font-weight:700; font-size:13.5px;}
+  .dz-file{font-size:12px; color:var(--ok); font-weight:600; word-break:break-all; padding:0 8px;}
+  .dz-hint{font-size:11.5px; color:var(--muted);}
+  input[type=file].hidden-input{display:none;}
+
+  .controls-row{
+    display:flex; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-top:18px;
+    padding-top:18px; border-top:1px solid var(--border);
+  }
+  .field{display:flex; flex-direction:column; gap:6px;}
+  .field label{font-size:12px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.4px;}
+  .field input[type=number]{
+    width:90px; padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:14px;
+  }
+  .checkbox-line{display:flex; align-items:center; gap:8px; font-size:13px;}
+
+  .status{font-size:13px; margin-top:14px; padding:10px 14px; border-radius:6px; display:none;}
+  .status.show{display:block;}
+  .status.error{background:var(--danger-bg); color:var(--danger); border:1px solid #F2C9C5;}
+  .status.warn{background:var(--warn-bg); color:var(--warn); border:1px solid #F2E0B5;}
+  .status.ok{background:var(--ok-bg); color:var(--ok); border:1px solid #C9E7D3;}
+
+  .toast{
+    position:fixed; bottom:20px; right:20px; background:var(--navy); color:#fff; padding:11px 18px;
+    border-radius:8px; font-size:13px; box-shadow:0 6px 20px rgba(0,0,0,.2); opacity:0; transform:translateY(8px);
+    transition:.2s; pointer-events:none; z-index:50; max-width:340px;
+  }
+  .toast.show{opacity:1; transform:translateY(0);}
+
+  .summary{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:24px;}
+  @media (max-width:920px){ .summary{grid-template-columns:repeat(2,1fr);} }
+  .stat{
+    background:#fff; border:1px solid var(--border); border-radius:10px; padding:16px 18px; box-shadow:var(--shadow);
+    border-left:4px solid var(--navy);
+  }
+  .stat.stat-danger{border-left-color:var(--danger);}
+  .stat.stat-ok{border-left-color:var(--ok);}
+  .stat.stat-warn{border-left-color:var(--warn);}
+  .stat .n{font-size:24px; font-weight:800; color:var(--navy);}
+  .stat .l{font-size:12px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.3px;}
+  .stat .amt{font-size:13px; color:var(--muted); margin-top:2px;}
+
+  .results{display:none;}
+  .results.show{display:block;}
+
+  .section-title{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; flex-wrap:wrap; gap:8px;}
+  .section-title h3{margin:0; font-size:15.5px; display:flex; align-items:center; gap:8px;}
+  .badge{
+    font-size:11px; font-weight:800; padding:3px 9px; border-radius:20px; text-transform:uppercase; letter-spacing:.3px;
+  }
+  .badge-danger{background:var(--danger-bg); color:var(--danger);}
+  .badge-ok{background:var(--ok-bg); color:var(--ok);}
+
+  table.results-table{width:100%; border-collapse:collapse; font-size:13px; background:#fff;}
+  table.results-table thead th{
+    background:var(--navy); color:#fff; text-align:left; padding:10px 12px; font-weight:700;
+    font-size:11.5px; text-transform:uppercase; letter-spacing:.3px; position:sticky; top:0;
+  }
+  table.results-table tbody td{padding:9px 12px; border-bottom:1px solid var(--border);}
+  table.results-table tbody tr:hover{background:var(--ice);}
+  table.results-table tbody tr.row-overdue{background:var(--danger-bg);}
+  table.results-table tbody tr.row-overdue:hover{background:#F6D9D6;}
+  table.results-table tbody tr.row-soon td:first-child{border-left:3px solid var(--amber);}
+  .table-wrap{max-height:520px; overflow:auto; border:1px solid var(--border); border-radius:8px; margin-bottom:8px;}
+  .table-wrap table{margin:0;}
+  .num{text-align:right; font-variant-numeric:tabular-nums;}
+  .tag{font-size:11px; font-weight:700; padding:2px 8px; border-radius:12px;}
+  .tag-ab{background:var(--ok-bg); color:var(--ok);}
+  .tag-exc{background:#EAE5F7; color:#5B3FA6;}
+  .tag-overdue{background:var(--danger-bg); color:var(--danger); font-weight:800;}
+  .tag-soon{background:var(--warn-bg); color:var(--warn);}
+  .muted-cell{color:var(--muted); font-size:12px;}
+
+  footer{max-width:1180px; margin:0 auto; padding:0 32px 40px; color:var(--muted); font-size:12px;}
+  footer .note{background:#fff; border:1px solid var(--border); border-radius:8px; padding:14px 18px; box-shadow:var(--shadow);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="dot"></span><span>PREMIUM Delevent</span></div>
+  <h1>Control de Caducidad de Reservas</h1>
+  <p>Cruza los pedidos reservados con la clasificación de clientes (A/B), las excepciones aprobadas para C/D y las excepciones inversas (A/B tratados como C/D), para saber a quién hay que reclamar confirmación antes de que caduque la reserva.</p>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>1. Clientes A/B, excepciones C/D y excepciones inversas</h2>
+    <p class="sub">Ya están cargados por defecto — no hace falta subir ningún archivo para procesar. Ábrelos solo si quieres revisar, añadir o corregir algo.</p>
+
+    <details class="mgmt" id="mgmt-ab">
+      <summary>
+        <span>👥 Clientes Tipo A/B <span class="chip" id="chip-ab-count">147 clientes</span></span>
+        <span class="arrow">▶</span>
+      </summary>
+      <div class="mgmt-body">
+        <div class="mgmt-toolbar">
+          <button class="btn-ghost btn-sm" id="btn-ab-add">+ Añadir cliente</button>
+          <label class="file-label">⬆ Importar/actualizar desde Excel
+            <input type="file" id="file-import-ab" class="hidden-input" accept=".xlsx,.xls">
+          </label>
+          <button class="btn-ghost btn-sm" id="btn-ab-export">⬇ Exportar</button>
+          <span class="spacer"></span>
+          <button class="btn-ghost btn-sm danger" id="btn-ab-reset">Restaurar lista original</button>
+        </div>
+        <p class="dz-hint" style="margin:-4px 0 10px;">El Excel a importar debe tener columnas "Nº", "Nombre" y "Grupo precio cliente" (formato Clientes 2.xlsx) — se añaden/actualizan solo las filas Tipo A o B, por número de cliente.</p>
+        <div class="edit-table-wrap">
+          <table class="edit-table">
+            <thead><tr><th style="width:110px;">Nº cliente</th><th>Nombre</th><th style="width:70px;">Grupo</th><th class="col-del"></th></tr></thead>
+            <tbody id="tbody-ab-edit"></tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <details class="mgmt" id="mgmt-exc">
+      <summary>
+        <span>✅ Excepciones aprobadas (C/D tratados como A/B) <span class="chip" id="chip-exc-count">17 clientes</span></span>
+        <span class="arrow">▶</span>
+      </summary>
+      <div class="mgmt-body">
+        <div class="mgmt-toolbar">
+          <button class="btn-ghost btn-sm" id="btn-exc-add">+ Añadir excepción</button>
+          <label class="file-label">⬆ Importar/actualizar desde Excel
+            <input type="file" id="file-import-exc" class="hidden-input" accept=".xlsx,.xls">
+          </label>
+          <button class="btn-ghost btn-sm" id="btn-exc-export">⬇ Exportar</button>
+          <span class="spacer"></span>
+          <button class="btn-ghost btn-sm danger" id="btn-exc-reset">Restaurar lista original</button>
+        </div>
+        <p class="dz-hint" style="margin:-4px 0 10px;">Admite el Excel de excepciones (pestañas "Excepción automática" / "Candidatos excepción manual", filtrando por la columna "Aprobado por Pepe") o cualquier lista con un número de cliente.</p>
+        <div class="edit-table-wrap">
+          <table class="edit-table">
+            <thead><tr><th style="width:110px;">Nº cliente</th><th>Nombre</th><th>Motivo</th><th class="col-del"></th></tr></thead>
+            <tbody id="tbody-exc-edit"></tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <details class="mgmt" id="mgmt-rev">
+      <summary>
+        <span>🚫 Excepciones inversas — Tipo A/B tratados como C/D <span class="chip" id="chip-rev-count">6 clientes</span></span>
+        <span class="arrow">▶</span>
+      </summary>
+      <div class="mgmt-body">
+        <p class="dz-hint" style="margin:0 0 10px;">Para clientes que el ERP marca como Tipo A o B pero que, por circunstancias comerciales, quieres tratar con las condiciones de C/D (caducidad de 14 días, hay que reclamar). Esta lista tiene <strong>prioridad sobre todo lo demás</strong>: si un cliente está aquí, siempre se reclama, aunque también esté en la lista A/B o en excepciones.</p>
+        <div class="mgmt-toolbar">
+          <button class="btn-ghost btn-sm" id="btn-rev-add">+ Añadir cliente</button>
+          <label class="file-label">⬆ Importar/actualizar desde Excel
+            <input type="file" id="file-import-rev" class="hidden-input" accept=".xlsx,.xls">
+          </label>
+          <button class="btn-ghost btn-sm" id="btn-rev-export">⬇ Exportar</button>
+          <span class="spacer"></span>
+          <button class="btn-ghost btn-sm danger" id="btn-rev-reset">Restaurar lista original</button>
+        </div>
+        <p class="dz-hint" style="margin:-4px 0 10px;">Admite cualquier Excel con una columna de número de cliente (y opcionalmente nombre y motivo).</p>
+        <div class="edit-table-wrap">
+          <table class="edit-table">
+            <thead><tr><th style="width:110px;">Nº cliente</th><th>Nombre</th><th>Motivo</th><th class="col-del"></th></tr></thead>
+            <tbody id="tbody-rev-edit"></tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="card">
+    <h2>2. Pedidos abiertos y procesamiento</h2>
+    <p class="sub">Sube el export de pedidos reservados y pulsa Procesar — este es el único archivo obligatorio.</p>
+
+    <div style="max-width:420px;">
+      <div class="dropzone" id="dz-pedidos">
+        <div class="dz-icon">📦</div>
+        <div class="dz-title">Pedidos abiertos</div>
+        <div class="dz-hint">Export "Pedidos venta" del ERP (con columna "Fecha caducidad reserva")</div>
+        <div class="dz-file" id="dz-pedidos-name"></div>
+      </div>
+      <input type="file" id="file-pedidos" class="hidden-input" accept=".xlsx,.xls">
+    </div>
+
+    <div class="controls-row">
+      <div class="field">
+        <label for="dias-antelacion">Avisar con (días)</label>
+        <input type="number" id="dias-antelacion" value="7" min="0" max="60">
+      </div>
+      <div class="field">
+        <label for="filtro-abierto">Filtrar solo "Reservado / Abierto"</label>
+        <div class="checkbox-line">
+          <input type="checkbox" id="filtro-abierto" checked>
+          <span class="muted-cell" style="font-size:12px;">recomendado — ignora pedidos ya facturados o cancelados</span>
+        </div>
+      </div>
+      <div class="field">
+        <button class="btn-primary" id="btn-procesar" disabled>Procesar</button>
+      </div>
+    </div>
+
+    <div class="status" id="status"></div>
+  </div>
+
+  <div class="results" id="results">
+
+    <div class="summary">
+      <div class="stat stat-danger">
+        <div class="n" id="stat-reclamar-n">0</div>
+        <div class="l">Pedidos a reclamar</div>
+        <div class="amt" id="stat-reclamar-amt">0 €</div>
+      </div>
+      <div class="stat stat-ok">
+        <div class="n" id="stat-noreclamar-n">0</div>
+        <div class="l">No reclamar (A/B o excepción)</div>
+        <div class="amt" id="stat-noreclamar-amt">0 €</div>
+      </div>
+      <div class="stat stat-warn">
+        <div class="n" id="stat-vencidos-n">0</div>
+        <div class="l">Ya vencidos (dentro de "a reclamar")</div>
+        <div class="amt" id="stat-vencidos-amt">0 €</div>
+      </div>
+      <div class="stat" id="stat-sin-clasificar-card" style="display:none;">
+        <div class="n" id="stat-sinclasificar-n">0</div>
+        <div class="l">Sin nombre de cliente en el pedido</div>
+        <div class="amt">&nbsp;</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">
+        <h3>📨 A reclamar <span class="badge badge-danger">requiere acción</span></h3>
+        <button class="btn-ghost" id="btn-export-reclamar">⬇ Exportar a Excel</button>
+      </div>
+      <p class="sub">Pedidos que caducan dentro del plazo indicado (o ya han caducado) de clientes Tipo C/D por defecto, o de clientes A/B marcados como excepción inversa. Enviar mensaje de confirmación / aviso de cancelación.</p>
+      <div class="table-wrap">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Pedido</th><th>Comercial</th><th>Cliente</th><th>Motivo</th>
+              <th class="num">Importe</th><th>Caducidad</th><th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-reclamar"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">
+        <h3>🛡 No reclamar <span class="badge badge-ok">solo referencia</span></h3>
+        <button class="btn-ghost" id="btn-export-noreclamar">⬇ Exportar a Excel</button>
+      </div>
+      <p class="sub">También caducan en el plazo indicado, pero son Tipo A/B o tienen excepción aprobada — no requieren reclamación.</p>
+      <div class="table-wrap">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Pedido</th><th>Comercial</th><th>Cliente</th><th>Motivo</th>
+              <th class="num">Importe</th><th>Caducidad</th><th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-noreclamar"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <div class="note">
+    <strong>Cómo funciona:</strong> las listas de clientes Tipo A/B, de excepciones aprobadas para C/D y de excepciones inversas ya vienen cargadas — cualquier cliente que no esté en ninguna se trata como Tipo C/D estándar (caducidad de 14 días, hay que reclamar). La lista de excepciones inversas tiene prioridad sobre las demás: un cliente A/B marcado ahí siempre se reclama, por circunstancias comerciales. Edita las tres listas arriba cuando cambie una clasificación, se apruebe una nueva excepción o quieras forzar condiciones más estrictas a un cliente concreto; los cambios se guardan en este navegador para la próxima vez que abras la herramienta. Solo hace falta subir el export de pedidos para procesar. Nada se envía a ningún servidor: todo el cálculo se hace en tu navegador.
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+
+  // ---------- persistence ----------
+  const LS_AB = 'premium_caducidad_ab_v1';
+  const LS_EXC = 'premium_caducidad_exc_v1';
+  const LS_REV = 'premium_caducidad_rev_v2';
+  let storageOk = true;
+
+  function loadDefault(scriptId){
+    try{ return JSON.parse(document.getElementById(scriptId).textContent); }
+    catch(e){ return []; }
+  }
+  const DEFAULT_AB = loadDefault('default-ab-data');
+  const DEFAULT_EXC = loadDefault('default-exc-data');
+  const DEFAULT_REV = loadDefault('default-rev-data');
+
+  function lsGet(key, fallback){
+    try{
+      const raw = localStorage.getItem(key);
+      if(!raw) return JSON.parse(JSON.stringify(fallback));
+      const parsed = JSON.parse(raw);
+      if(!Array.isArray(parsed)) return JSON.parse(JSON.stringify(fallback));
+      return parsed;
+    }catch(e){
+      storageOk = false;
+      return JSON.parse(JSON.stringify(fallback));
+    }
+  }
+  function lsSet(key, data){
+    try{ localStorage.setItem(key, JSON.stringify(data)); }
+    catch(e){
+      if(storageOk){ // only warn once
+        storageOk = false;
+        showToast('Aviso: este navegador no permite guardar cambios de forma permanente. Los cambios solo durarán mientras esta pestaña esté abierta.');
+      }
+    }
+  }
+
+  let abClients = lsGet(LS_AB, DEFAULT_AB);
+  let excepciones = lsGet(LS_EXC, DEFAULT_EXC);
+  let reverseExc = lsGet(LS_REV, DEFAULT_REV);
+
+  // Al publicar nuevas listas por defecto, se añaden a lo que el navegador ya tuviera guardado
+  // (sin borrar los cambios manuales).
+  const DATA_VERSION = '2026-09-25';
+  const LS_VER = 'premium_caducidad_dataver';
+  function rowKey(x){ return x.num ? 'n:'+norm(x.num) : 'x:'+norm(x.nombre); }
+  function mergeDefaults(stored, defaults){
+    const keys = new Set(stored.map(rowKey));
+    defaults.forEach(d=>{
+      const k = rowKey(d);
+      const i = stored.findIndex(s=>rowKey(s)===k);
+      if(i===-1){ stored.push(JSON.parse(JSON.stringify(d))); keys.add(k); }
+      else if(d.grupo && stored[i].grupo!==d.grupo){ stored[i].grupo = d.grupo; }
+    });
+    return stored;
+  }
+  try{
+    if(localStorage.getItem(LS_VER)!==DATA_VERSION){
+      if(localStorage.getItem(LS_AB)){ abClients = mergeDefaults(abClients, DEFAULT_AB); lsSet(LS_AB, abClients); }
+      if(localStorage.getItem(LS_EXC)){ excepciones = mergeDefaults(excepciones, DEFAULT_EXC); lsSet(LS_EXC, excepciones); }
+      localStorage.setItem(LS_VER, DATA_VERSION);
+    }
+  }catch(e){}
+
+  // ---------- state ----------
+  let pedidosWB = null;
+  let lastReclamar = [], lastNoReclamar = [];
+
+  // ---------- generic helpers ----------
+  function norm(s){
+    return (s===undefined||s===null) ? '' : String(s).trim().toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g,'');
+  }
+
+  function showToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(()=>t.classList.remove('show'), 3200);
+  }
+
+  function readWorkbook(file){
+    return new Promise((resolve,reject)=>{
+      const reader = new FileReader();
+      reader.onload = e=>{
+        try{
+          const data = new Uint8Array(e.target.result);
+          const wb = XLSX.read(data, {type:'array', cellDates:true});
+          resolve(wb);
+        }catch(err){ reject(err); }
+      };
+      reader.onerror = reject;
+      reader.readAsArrayBuffer(file);
+    });
+  }
+
+  function sheetToRows(ws){
+    return XLSX.utils.sheet_to_json(ws, {header:1, raw:true, defval:null});
+  }
+
+  function findHeaderRowIndex(rows, mustContainAny){
+    let best = 0, bestScore = -1;
+    const scanLimit = Math.min(rows.length, 12);
+    for(let i=0;i<scanLimit;i++){
+      const row = rows[i] || [];
+      const nonEmpty = row.filter(c=>c!==null && c!==undefined && String(c).trim()!=='').length;
+      const normedCells = row.map(norm);
+      const hasKeyword = mustContainAny.some(kw => normedCells.some(c => c.includes(kw)));
+      let score = nonEmpty + (hasKeyword ? 100 : 0);
+      if(score > bestScore){ bestScore = score; best = i; }
+    }
+    return best;
+  }
+
+  function colIndex(headerRow, candidates, exact){
+    const normed = headerRow.map(norm);
+    for(const cand of candidates){
+      const nc = norm(cand);
+      const idx = normed.findIndex(h => h === nc);
+      if(idx !== -1) return idx;
+    }
+    if(exact) return -1;
+    for(const cand of candidates){
+      const nc = norm(cand);
+      const idx = normed.findIndex(h => h.includes(nc));
+      if(idx !== -1) return idx;
+    }
+    return -1;
+  }
+
+  function toDate(v){
+    if(v instanceof Date) return v;
+    if(typeof v === 'number'){
+      const d = XLSX.SSF.parse_date_code(v);
+      if(d) return new Date(d.y, d.m-1, d.d);
+    }
+    if(typeof v === 'string' && v.trim()!==''){
+      const parts = v.trim().split(/[\/\-]/);
+      if(parts.length===3){
+        let [a,b,c] = parts;
+        if(a.length===4){ return new Date(+a, +b-1, +c); }
+        return new Date(+c, +b-1, +a);
+      }
+      const d = new Date(v);
+      if(!isNaN(d)) return d;
+    }
+    return null;
+  }
+
+  function fmtDate(d){
+    if(!d) return '—';
+    const dd = String(d.getDate()).padStart(2,'0');
+    const mm = String(d.getMonth()+1).padStart(2,'0');
+    return `${dd}/${mm}/${d.getFullYear()}`;
+  }
+
+  function fmtEUR(n){
+    if(n===null||n===undefined||isNaN(n)) return '—';
+    return n.toLocaleString('es-ES',{minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
+  }
+
+  function daysBetween(a,b){
+    const ms = 24*60*60*1000;
+    const da = new Date(a.getFullYear(),a.getMonth(),a.getDate());
+    const db = new Date(b.getFullYear(),b.getMonth(),b.getDate());
+    return Math.round((db-da)/ms);
+  }
+
+  function setStatus(msg, type){
+    const el = document.getElementById('status');
+    el.textContent = msg;
+    el.className = 'status show' + (type ? ' '+type : '');
+  }
+  function clearStatus(){
+    document.getElementById('status').className = 'status';
+  }
+
+  // ---------- management: A/B table ----------
+  function renderABTable(){
+    const tb = document.getElementById('tbody-ab-edit');
+    tb.innerHTML = '';
+    abClients.forEach((row, i)=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="col-num"><input type="text" data-kind="ab" data-i="${i}" data-f="num" value="${escapeAttr(row.num||'')}"></td>
+        <td><input type="text" data-kind="ab" data-i="${i}" data-f="nombre" value="${escapeAttr(row.nombre||'')}"></td>
+        <td>
+          <select data-kind="ab" data-i="${i}" data-f="grupo">
+            <option value="A" ${row.grupo==='A'?'selected':''}>A</option>
+            <option value="B" ${row.grupo==='B'?'selected':''}>B</option>
+          </select>
+        </td>
+        <td class="col-del"><button class="row-del-btn" data-kind="ab" data-i="${i}" title="Eliminar">✕</button></td>`;
+      tb.appendChild(tr);
+    });
+    document.getElementById('chip-ab-count').textContent = abClients.length + ' clientes';
+  }
+
+  function renderExcTable(){
+    const tb = document.getElementById('tbody-exc-edit');
+    tb.innerHTML = '';
+    excepciones.forEach((row, i)=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="col-num"><input type="text" data-kind="exc" data-i="${i}" data-f="num" value="${escapeAttr(row.num||'')}"></td>
+        <td><input type="text" data-kind="exc" data-i="${i}" data-f="nombre" value="${escapeAttr(row.nombre||'')}"></td>
+        <td><input type="text" data-kind="exc" data-i="${i}" data-f="motivo" value="${escapeAttr(row.motivo||'')}"></td>
+        <td class="col-del"><button class="row-del-btn" data-kind="exc" data-i="${i}" title="Eliminar">✕</button></td>`;
+      tb.appendChild(tr);
+    });
+    document.getElementById('chip-exc-count').textContent = excepciones.length + ' clientes';
+  }
+
+  function renderRevTable(){
+    const tb = document.getElementById('tbody-rev-edit');
+    tb.innerHTML = '';
+    reverseExc.forEach((row, i)=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="col-num"><input type="text" data-kind="rev" data-i="${i}" data-f="num" value="${escapeAttr(row.num||'')}"></td>
+        <td><input type="text" data-kind="rev" data-i="${i}" data-f="nombre" value="${escapeAttr(row.nombre||'')}"></td>
+        <td><input type="text" data-kind="rev" data-i="${i}" data-f="motivo" value="${escapeAttr(row.motivo||'')}"></td>
+        <td class="col-del"><button class="row-del-btn" data-kind="rev" data-i="${i}" title="Eliminar">✕</button></td>`;
+      tb.appendChild(tr);
+    });
+    document.getElementById('chip-rev-count').textContent = reverseExc.length + (reverseExc.length===1 ? ' cliente' : ' clientes');
+  }
+
+  function escapeAttr(s){
+    return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+  }
+
+  // live edits via delegated input listener (keeps focus, no full re-render)
+  document.getElementById('tbody-ab-edit').addEventListener('input', e=>{
+    const t = e.target; if(!t.dataset.f) return;
+    abClients[+t.dataset.i][t.dataset.f] = t.value.toUpperCase && t.dataset.f==='grupo' ? t.value.toUpperCase() : t.value;
+    lsSet(LS_AB, abClients);
+  });
+  document.getElementById('tbody-ab-edit').addEventListener('change', e=>{
+    const t = e.target; if(!t.dataset.f) return;
+    abClients[+t.dataset.i][t.dataset.f] = t.value;
+    lsSet(LS_AB, abClients);
+  });
+  document.getElementById('tbody-exc-edit').addEventListener('input', e=>{
+    const t = e.target; if(!t.dataset.f) return;
+    excepciones[+t.dataset.i][t.dataset.f] = t.value;
+    lsSet(LS_EXC, excepciones);
+  });
+  document.getElementById('tbody-rev-edit').addEventListener('input', e=>{
+    const t = e.target; if(!t.dataset.f) return;
+    reverseExc[+t.dataset.i][t.dataset.f] = t.value;
+    lsSet(LS_REV, reverseExc);
+  });
+
+  document.getElementById('tbody-ab-edit').addEventListener('click', e=>{
+    const btn = e.target.closest('.row-del-btn'); if(!btn) return;
+    abClients.splice(+btn.dataset.i, 1);
+    lsSet(LS_AB, abClients);
+    renderABTable();
+  });
+  document.getElementById('tbody-exc-edit').addEventListener('click', e=>{
+    const btn = e.target.closest('.row-del-btn'); if(!btn) return;
+    excepciones.splice(+btn.dataset.i, 1);
+    lsSet(LS_EXC, excepciones);
+    renderExcTable();
+  });
+  document.getElementById('tbody-rev-edit').addEventListener('click', e=>{
+    const btn = e.target.closest('.row-del-btn'); if(!btn) return;
+    reverseExc.splice(+btn.dataset.i, 1);
+    lsSet(LS_REV, reverseExc);
+    renderRevTable();
+  });
+
+  document.getElementById('btn-ab-add').addEventListener('click', ()=>{
+    abClients.push({num:'', nombre:'', grupo:'A'});
+    lsSet(LS_AB, abClients);
+    renderABTable();
+    const inputs = document.querySelectorAll('#tbody-ab-edit tr:last-child input');
+    if(inputs.length) inputs[0].focus();
+  });
+  document.getElementById('btn-exc-add').addEventListener('click', ()=>{
+    excepciones.push({num:'', nombre:'', motivo:'Excepción manual (aprobada)'});
+    lsSet(LS_EXC, excepciones);
+    renderExcTable();
+    const inputs = document.querySelectorAll('#tbody-exc-edit tr:last-child input');
+    if(inputs.length) inputs[0].focus();
+  });
+  document.getElementById('btn-rev-add').addEventListener('click', ()=>{
+    reverseExc.push({num:'', nombre:'', motivo:'Tratado como C/D por circunstancias comerciales'});
+    lsSet(LS_REV, reverseExc);
+    renderRevTable();
+    const inputs = document.querySelectorAll('#tbody-rev-edit tr:last-child input');
+    if(inputs.length) inputs[0].focus();
+  });
+
+  document.getElementById('btn-ab-reset').addEventListener('click', ()=>{
+    if(!confirm('¿Restaurar la lista de clientes A/B a los ' + DEFAULT_AB.length + ' clientes originales? Se perderán los cambios manuales.')) return;
+    abClients = JSON.parse(JSON.stringify(DEFAULT_AB));
+    lsSet(LS_AB, abClients);
+    renderABTable();
+    showToast('Lista A/B restaurada a los valores originales.');
+  });
+  document.getElementById('btn-exc-reset').addEventListener('click', ()=>{
+    if(!confirm('¿Restaurar la lista de excepciones a las ' + DEFAULT_EXC.length + ' originales? Se perderán los cambios manuales.')) return;
+    excepciones = JSON.parse(JSON.stringify(DEFAULT_EXC));
+    lsSet(LS_EXC, excepciones);
+    renderExcTable();
+    showToast('Lista de excepciones restaurada a los valores originales.');
+  });
+  document.getElementById('btn-rev-reset').addEventListener('click', ()=>{
+    if(!confirm('¿Restaurar la lista de excepciones inversas a las ' + DEFAULT_REV.length + ' originales? Se perderán los cambios manuales.')) return;
+    reverseExc = JSON.parse(JSON.stringify(DEFAULT_REV));
+    lsSet(LS_REV, reverseExc);
+    renderRevTable();
+    showToast('Lista de excepciones inversas restaurada a los valores originales.');
+  });
+
+  function exportSimple(list, cols, filename){
+    const ws = XLSX.utils.json_to_sheet(list, {header: cols.map(c=>c.key)});
+    // rewrite header row with friendly labels
+    const headerRow = cols.map(c=>c.label);
+    XLSX.utils.sheet_add_aoa(ws, [headerRow], {origin:'A1'});
+    ws['!cols'] = cols.map(()=>({wch:28}));
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Listado');
+    XLSX.writeFile(wb, filename);
+  }
+  document.getElementById('btn-ab-export').addEventListener('click', ()=>{
+    exportSimple(abClients, [{key:'num',label:'Nº'},{key:'nombre',label:'Nombre'},{key:'grupo',label:'Grupo precio cliente'}], 'clientes_AB_'+new Date().toISOString().slice(0,10)+'.xlsx');
+  });
+  document.getElementById('btn-exc-export').addEventListener('click', ()=>{
+    exportSimple(excepciones, [{key:'num',label:'Nº Cliente'},{key:'nombre',label:'Nombre'},{key:'motivo',label:'Motivo'}], 'excepciones_'+new Date().toISOString().slice(0,10)+'.xlsx');
+  });
+  document.getElementById('btn-rev-export').addEventListener('click', ()=>{
+    exportSimple(reverseExc, [{key:'num',label:'Nº Cliente'},{key:'nombre',label:'Nombre'},{key:'motivo',label:'Motivo'}], 'excepciones_inversas_'+new Date().toISOString().slice(0,10)+'.xlsx');
+  });
+
+  // ---------- import (merge/upsert) into AB / exceptions ----------
+  function parseClientesForImport(wb){
+    let sheetName = wb.SheetNames.find(n => norm(n).includes('client')) || wb.SheetNames[0];
+    const rows = sheetToRows(wb.Sheets[sheetName]);
+    const hIdx = findHeaderRowIndex(rows, ['grupo precio cliente','nombre']);
+    const header = rows[hIdx] || [];
+    const iNum = colIndex(header, ['Nº'], true);
+    const iNombre = colIndex(header, ['Nombre'], true);
+    const iGrupo = colIndex(header, ['Grupo precio cliente','Grupo']);
+    if(iNum===-1 || iGrupo===-1) throw new Error('No se han encontrado las columnas "Nº" y "Grupo precio cliente" en el archivo.');
+    const out = [];
+    for(let r=hIdx+1; r<rows.length; r++){
+      const row = rows[r]; if(!row) continue;
+      const num = row[iNum]; if(num===null||num===undefined||String(num).trim()==='') continue;
+      const grupo = String(row[iGrupo]||'').trim().toUpperCase();
+      if(grupo==='A' || grupo==='B'){
+        out.push({num:String(num).trim(), nombre: iNombre!==-1 ? String(row[iNombre]||'').trim() : '', grupo});
+      }
+    }
+    return out;
+  }
+
+  function parseExcepcionesForImport(wb){
+    const out = [];
+    wb.SheetNames.forEach(sheetName=>{
+      const rows = sheetToRows(wb.Sheets[sheetName]);
+      const hIdx = findHeaderRowIndex(rows, ['nº cliente','cliente','aprobado']);
+      const header = rows[hIdx] || [];
+      const iNum = colIndex(header, ['Nº Cliente (ERP)','Nº Cliente','Nº cliente','Cliente','Nº']);
+      if(iNum===-1) return;
+      const iNombre = colIndex(header, ['Nombre cliente','Nombre']);
+      const iAprobado = colIndex(header, ['Aprobado por Pepe (Sí/No)','Aprobado por Pepe','Aprobado']);
+      const isAutomatica = norm(sheetName).includes('automat');
+      const isManual = norm(sheetName).includes('manual') || norm(sheetName).includes('candidat');
+
+      for(let r=hIdx+1; r<rows.length; r++){
+        const row = rows[r]; if(!row) continue;
+        const num = row[iNum]; if(num===null||num===undefined||String(num).trim()==='') continue;
+        const numStr = String(num).trim();
+        const nombre = iNombre!==-1 ? String(row[iNombre]||'').trim() : '';
+
+        if(iAprobado!==-1){
+          const val = norm(row[iAprobado]);
+          const approved = ['si','sí','x','yes','y','1','true'].includes(val);
+          if(!approved) continue;
+          out.push({num:numStr, nombre, motivo:'Excepción manual (aprobada)'});
+        } else if(isAutomatica){
+          out.push({num:numStr, nombre, motivo:'Excepción automática (facturación > 20.000 € en 2024 y 2025)'});
+        } else if(isManual){
+          // sin columna de aprobación visible: no se puede confirmar, se omite
+        } else {
+          out.push({num:numStr, nombre, motivo:'Excepción aprobada'});
+        }
+      }
+    });
+    return out;
+  }
+
+  function parseGenericListForImport(wb, defaultMotivo){
+    const out = [];
+    wb.SheetNames.forEach(sheetName=>{
+      const rows = sheetToRows(wb.Sheets[sheetName]);
+      const hIdx = findHeaderRowIndex(rows, ['nº cliente','cliente','nº']);
+      const header = rows[hIdx] || [];
+      const iNum = colIndex(header, ['Nº Cliente (ERP)','Nº Cliente','Nº cliente','Cliente','Nº']);
+      if(iNum===-1) return;
+      const iNombre = colIndex(header, ['Nombre cliente','Nombre']);
+      const iMotivo = colIndex(header, ['Motivo']);
+      for(let r=hIdx+1; r<rows.length; r++){
+        const row = rows[r]; if(!row) continue;
+        const num = row[iNum]; if(num===null||num===undefined||String(num).trim()==='') continue;
+        out.push({
+          num: String(num).trim(),
+          nombre: iNombre!==-1 ? String(row[iNombre]||'').trim() : '',
+          motivo: iMotivo!==-1 && row[iMotivo] ? String(row[iMotivo]).trim() : defaultMotivo
+        });
+      }
+    });
+    return out;
+  }
+
+  function upsert(targetArr, newRows, keyField){
+    let added = 0, updated = 0;
+    newRows.forEach(nr=>{
+      const idx = targetArr.findIndex(x => norm(x[keyField]) === norm(nr[keyField]));
+      if(idx === -1){ targetArr.push(nr); added++; }
+      else { targetArr[idx] = {...targetArr[idx], ...nr}; updated++; }
+    });
+    return {added, updated};
+  }
+
+  document.getElementById('file-import-ab').addEventListener('change', e=>{
+    const file = e.target.files[0]; if(!file) return;
+    readWorkbook(file).then(wb=>{
+      try{
+        const rows = parseClientesForImport(wb);
+        const {added, updated} = upsert(abClients, rows, 'num');
+        lsSet(LS_AB, abClients);
+        renderABTable();
+        showToast(`Importado: ${added} clientes A/B nuevos, ${updated} actualizados.`);
+      }catch(err){ showToast('Error al importar: ' + err.message); }
+    }).catch(err=>showToast('No se ha podido leer el archivo: '+err.message));
+    e.target.value = '';
+  });
+
+  document.getElementById('file-import-exc').addEventListener('change', e=>{
+    const file = e.target.files[0]; if(!file) return;
+    readWorkbook(file).then(wb=>{
+      try{
+        const rows = parseExcepcionesForImport(wb);
+        if(!rows.length){ showToast('No se ha encontrado ninguna excepción aprobada en ese archivo.'); return; }
+        const {added, updated} = upsert(excepciones, rows, 'num');
+        lsSet(LS_EXC, excepciones);
+        renderExcTable();
+        showToast(`Importado: ${added} excepciones nuevas, ${updated} actualizadas.`);
+      }catch(err){ showToast('Error al importar: ' + err.message); }
+    }).catch(err=>showToast('No se ha podido leer el archivo: '+err.message));
+    e.target.value = '';
+  });
+
+  document.getElementById('file-import-rev').addEventListener('change', e=>{
+    const file = e.target.files[0]; if(!file) return;
+    readWorkbook(file).then(wb=>{
+      try{
+        const rows = parseGenericListForImport(wb, 'Tratado como C/D por circunstancias comerciales');
+        if(!rows.length){ showToast('No se ha encontrado ninguna columna de número de cliente en ese archivo.'); return; }
+        const {added, updated} = upsert(reverseExc, rows, 'num');
+        lsSet(LS_REV, reverseExc);
+        renderRevTable();
+        showToast(`Importado: ${added} excepciones inversas nuevas, ${updated} actualizadas.`);
+      }catch(err){ showToast('Error al importar: ' + err.message); }
+    }).catch(err=>showToast('No se ha podido leer el archivo: '+err.message));
+    e.target.value = '';
+  });
+
+  renderABTable();
+  renderExcTable();
+  renderRevTable();
+
+  // ---------- pedidos dropzone ----------
+  function wireDropzone(dzId, inputId, nameId, onLoaded){
+    const dz = document.getElementById(dzId);
+    const input = document.getElementById(inputId);
+    dz.addEventListener('click', ()=>input.click());
+    dz.addEventListener('dragover', e=>{ e.preventDefault(); dz.style.borderColor='var(--amber)'; });
+    dz.addEventListener('dragleave', ()=>{ dz.style.borderColor=''; });
+    dz.addEventListener('drop', e=>{
+      e.preventDefault(); dz.style.borderColor='';
+      if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+    });
+    input.addEventListener('change', e=>{
+      if(e.target.files.length) handleFile(e.target.files[0]);
+    });
+    function handleFile(file){
+      clearStatus();
+      readWorkbook(file).then(wb=>{
+        dz.classList.add('has-file');
+        document.getElementById(nameId).textContent = '✓ ' + file.name;
+        onLoaded(wb);
+        document.getElementById('btn-procesar').disabled = false;
+      }).catch(err=>{
+        setStatus('No se ha podido leer "'+file.name+'": '+err.message, 'error');
+      });
+    }
+  }
+  wireDropzone('dz-pedidos','file-pedidos','dz-pedidos-name', wb=>{ pedidosWB = wb; });
+
+  // ---------- pedidos parser ----------
+  function parsePedidos(wb){
+    let sheetName = wb.SheetNames.find(n => norm(n).includes('pedidos')) || wb.SheetNames[0];
+    const rows = sheetToRows(wb.Sheets[sheetName]);
+    const hIdx = findHeaderRowIndex(rows, ['nº','venta a-nº cliente','importe']);
+    const header = rows[hIdx] || [];
+
+    const iPedido   = colIndex(header, ['Nº'], true);
+    const iVendedor = colIndex(header, ['Cód. vendedor','Cod. vendedor','Cód vendedor']);
+    const iClienteN = colIndex(header, ['Venta a-Nº cliente','Venta a-N° cliente','Nº cliente']);
+    const iClienteX = colIndex(header, ['Venta a-Nombre']);
+    const iImporte  = colIndex(header, ['Importe'], true);
+    const iCaducidad= colIndex(header, ['Fecha caducidad reserva']);
+    const iEstadoDoc= colIndex(header, ['Estado Documento'], true);
+    const iEstado   = colIndex(header, ['Estado'], true);
+
+    const missing = [];
+    if(iPedido===-1) missing.push('Nº (nº de pedido)');
+    if(iClienteN===-1) missing.push('Venta a-Nº cliente');
+    if(iImporte===-1) missing.push('Importe');
+    if(iCaducidad===-1) missing.push('Fecha caducidad reserva');
+    if(missing.length) throw new Error('Faltan columnas en el archivo de Pedidos: '+missing.join(', '));
+
+    const out = [];
+    for(let r=hIdx+1; r<rows.length; r++){
+      const row = rows[r];
+      if(!row || row.every(c=>c===null||c===undefined||String(c).trim()==='')) continue;
+      const pedido = row[iPedido];
+      if(pedido===null || pedido===undefined || String(pedido).trim()==='') continue;
+      out.push({
+        pedido: String(pedido).trim(),
+        vendedor: iVendedor!==-1 ? (row[iVendedor]||'') : '',
+        clienteNum: iClienteN!==-1 ? String(row[iClienteN]||'').trim() : '',
+        clienteNombre: iClienteX!==-1 ? (row[iClienteX]||'') : '',
+        importe: iImporte!==-1 ? Number(row[iImporte])||0 : 0,
+        caducidad: iCaducidad!==-1 ? toDate(row[iCaducidad]) : null,
+        estadoDoc: iEstadoDoc!==-1 ? String(row[iEstadoDoc]||'').trim() : '',
+        estado: iEstado!==-1 ? String(row[iEstado]||'').trim() : ''
+      });
+    }
+    return out;
+  }
+
+  // ---------- processing ----------
+  function process(){
+    clearStatus();
+    let pedidos;
+    try{ pedidos = parsePedidos(pedidosWB); }
+    catch(err){ setStatus(err.message, 'error'); return; }
+
+    // Cruce por nº de cliente; si la fila no tiene nº, se cruza por nombre exacto (normalizado)
+    const nameKey = s => norm(s).replace(/[^a-z0-9]/g,'');
+    const abMap = {}, abName = {};
+    abClients.forEach(c=>{ if(c.num) abMap[norm(c.num)] = c.grupo; else if(c.nombre) abName[nameKey(c.nombre)] = c.grupo; });
+    const excMap = {}, excName = {};
+    excepciones.forEach(c=>{ const m = c.motivo || 'Excepción aprobada'; if(c.num) excMap[norm(c.num)] = m; else if(c.nombre) excName[nameKey(c.nombre)] = m; });
+    const revMap = {}, revName = {};
+    reverseExc.forEach(c=>{ const m = c.motivo || 'Excepción inversa (A/B tratado como C/D)'; if(c.num) revMap[norm(c.num)] = m; else if(c.nombre) revName[nameKey(c.nombre)] = m; });
+
+    const diasAntelacion = Number(document.getElementById('dias-antelacion').value) || 0;
+    const soloAbierto = document.getElementById('filtro-abierto').checked;
+    const hoy = new Date();
+
+    const reclamar = [], noReclamar = [];
+    let sinNombre = 0;
+
+    pedidos.forEach(p=>{
+      if(soloAbierto){
+        const docOk = !p.estadoDoc || norm(p.estadoDoc).includes('reserv');
+        const estOk = !p.estado || norm(p.estado).includes('abiert');
+        if(!docOk || !estOk) return;
+      }
+      if(!p.caducidad) return;
+
+      const dias = daysBetween(hoy, p.caducidad);
+      const vencido = dias < 0;
+      if(dias > diasAntelacion) return;
+
+      if(!p.clienteNombre) sinNombre++;
+
+      const key = norm(p.clienteNum);
+      const nk = nameKey(p.clienteNombre);
+      const grupo = abMap[key] || (nk ? abName[nk] : undefined);
+      const motivoExcepcion = excMap[key] || (nk ? excName[nk] : undefined);
+      const motivoInversa = revMap[key] || (nk ? revName[nk] : undefined);
+      const enriched = {...p, dias, vencido};
+
+      if(motivoInversa){
+        // prioridad absoluta: aunque sea A/B o tenga excepción, se trata como C/D
+        reclamar.push({...enriched, motivo: motivoInversa});
+      } else if(grupo === 'A' || grupo === 'B'){
+        noReclamar.push({...enriched, motivo: 'Cliente Tipo '+grupo});
+      } else if(motivoExcepcion){
+        noReclamar.push({...enriched, motivo: motivoExcepcion});
+      } else {
+        reclamar.push({...enriched, motivo: 'C/D estándar'});
+      }
+    });
+
+    reclamar.sort((a,b)=>a.dias-b.dias);
+    noReclamar.sort((a,b)=>a.dias-b.dias);
+
+    lastReclamar = reclamar;
+    lastNoReclamar = noReclamar;
+
+    renderResults(reclamar, noReclamar, sinNombre);
+
+    setStatus(`Procesado: ${pedidos.length} pedidos leídos · ${reclamar.length} a reclamar · ${noReclamar.length} sin reclamar.`, 'ok');
+  }
+
+  function tagEstado(dias, vencido){
+    if(vencido) return `<span class="tag tag-overdue">Vencido (${Math.abs(dias)} d)</span>`;
+    if(dias<=2) return `<span class="tag tag-overdue">${dias} d</span>`;
+    return `<span class="tag tag-soon">${dias} d</span>`;
+  }
+
+  function renderResults(reclamar, noReclamar, sinNombre){
+    document.getElementById('results').classList.add('show');
+
+    const sumR = reclamar.reduce((s,x)=>s+x.importe,0);
+    const sumNR = noReclamar.reduce((s,x)=>s+x.importe,0);
+    const vencidos = reclamar.filter(x=>x.vencido);
+    const sumV = vencidos.reduce((s,x)=>s+x.importe,0);
+
+    document.getElementById('stat-reclamar-n').textContent = reclamar.length;
+    document.getElementById('stat-reclamar-amt').textContent = fmtEUR(sumR);
+    document.getElementById('stat-noreclamar-n').textContent = noReclamar.length;
+    document.getElementById('stat-noreclamar-amt').textContent = fmtEUR(sumNR);
+    document.getElementById('stat-vencidos-n').textContent = vencidos.length;
+    document.getElementById('stat-vencidos-amt').textContent = fmtEUR(sumV);
+
+    const scCard = document.getElementById('stat-sin-clasificar-card');
+    if(sinNombre){
+      scCard.style.display = '';
+      document.getElementById('stat-sinclasificar-n').textContent = sinNombre;
+    } else {
+      scCard.style.display = 'none';
+    }
+
+    document.getElementById('tbody-reclamar').innerHTML = reclamar.map(x=>`
+      <tr class="${x.vencido?'row-overdue':'row-soon'}">
+        <td>${x.pedido}</td>
+        <td>${x.vendedor||'—'}</td>
+        <td>${x.clienteNombre||'—'}<div class="muted-cell">${x.clienteNum}</div></td>
+        <td>${x.motivo==='C/D estándar' ? `<span class="muted-cell">${x.motivo}</span>` : `<span class="tag" style="background:#FBEAE8;color:#B0271E;">${x.motivo}</span>`}</td>
+        <td class="num">${fmtEUR(x.importe)}</td>
+        <td>${fmtDate(x.caducidad)}</td>
+        <td>${tagEstado(x.dias,x.vencido)}</td>
+      </tr>`).join('') || `<tr><td colspan="7" class="muted-cell" style="text-align:center; padding:18px;">Sin resultados en este plazo.</td></tr>`;
+
+    document.getElementById('tbody-noreclamar').innerHTML = noReclamar.map(x=>`
+      <tr>
+        <td>${x.pedido}</td>
+        <td>${x.vendedor||'—'}</td>
+        <td>${x.clienteNombre||'—'}<div class="muted-cell">${x.clienteNum}</div></td>
+        <td><span class="tag ${x.motivo.startsWith('Cliente Tipo')?'tag-ab':'tag-exc'}">${x.motivo}</span></td>
+        <td class="num">${fmtEUR(x.importe)}</td>
+        <td>${fmtDate(x.caducidad)}</td>
+        <td>${tagEstado(x.dias,x.vencido)}</td>
+      </tr>`).join('') || `<tr><td colspan="7" class="muted-cell" style="text-align:center; padding:18px;">Sin resultados en este plazo.</td></tr>`;
+  }
+
+  // ---------- export results ----------
+  function exportResultList(list, filename){
+    const data = list.map(x=>({
+      'Pedido': x.pedido,
+      'Comercial': x.vendedor,
+      'Cliente': x.clienteNombre,
+      'Nº Cliente': x.clienteNum,
+      'Motivo': x.motivo || '',
+      'Importe (€)': x.importe,
+      'Fecha caducidad': x.caducidad ? fmtDate(x.caducidad) : '',
+      'Días restantes': x.dias
+    }));
+    const ws = XLSX.utils.json_to_sheet(data);
+    ws['!cols'] = [{wch:12},{wch:20},{wch:32},{wch:12},{wch:26},{wch:14},{wch:14},{wch:12}];
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Listado');
+    XLSX.writeFile(wb, filename);
+  }
+  document.getElementById('btn-export-reclamar').addEventListener('click', ()=>{
+    if(!lastReclamar.length){ setStatus('No hay datos para exportar. Procesa primero.', 'warn'); return; }
+    exportResultList(lastReclamar, 'reservas_a_reclamar_'+new Date().toISOString().slice(0,10)+'.xlsx');
+  });
+  document.getElementById('btn-export-noreclamar').addEventListener('click', ()=>{
+    if(!lastNoReclamar.length){ setStatus('No hay datos para exportar. Procesa primero.', 'warn'); return; }
+    exportResultList(lastNoReclamar, 'reservas_sin_reclamar_'+new Date().toISOString().slice(0,10)+'.xlsx');
+  });
+
+  document.getElementById('btn-procesar').addEventListener('click', process);
+
+})();
+</script>
+
+</body>
+</html>
